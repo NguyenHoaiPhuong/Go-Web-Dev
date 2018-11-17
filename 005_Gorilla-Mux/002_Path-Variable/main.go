@@ -17,6 +17,10 @@ func productHandler(w http.ResponseWriter, r *http.Request) {
 
 func articleCategoryHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "<h1>Article Category Page</h1>")
+
+	vars := mux.Vars(r)
+	fmt.Fprintln(w, "<p>"+"category:"+vars["category"]+"</p>"+"<br>")
+	fmt.Fprintln(w, "<p>"+"sort:"+vars["sort"]+"</p>")
 }
 
 func articleHandler(w http.ResponseWriter, r *http.Request) {
