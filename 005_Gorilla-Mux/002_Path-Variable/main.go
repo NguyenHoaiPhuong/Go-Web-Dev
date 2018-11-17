@@ -8,11 +8,15 @@ import (
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "<h1>Home page</h1>")
+	fmt.Fprintln(w, "<h1>Home Page</h1>")
 }
 
 func productHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "<h1>Product page</h1>")
+	fmt.Fprintln(w, "<h1>Product Page</h1>")
+}
+
+func articleCategoryHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "<h1>Article Category Page</h1>")
 }
 
 func articleHandler(w http.ResponseWriter, r *http.Request) {
@@ -22,7 +26,8 @@ func articleHandler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	r := mux.NewRouter()
 	r.HandleFunc("/", homeHandler)
-	r.HandleFunc("/Product", productHandler)
-	r.HandleFunc("/Article", articleHandler)
+	r.HandleFunc("/Product/{key}", productHandler)
+	r.HandleFunc("/Article/{category}/{sort:(?:asc|desc|new)}", articleCategoryHandler)
+	r.HandleFunc("/Article/{category}/{id:[0-9]+}", articleHandler)
 	http.ListenAndServe(":9000", r)
 }
