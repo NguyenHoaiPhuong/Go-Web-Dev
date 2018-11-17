@@ -1,0 +1,1 @@
+Common data types in golang: string, integer, float, boolean, etc.
