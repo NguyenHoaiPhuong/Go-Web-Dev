@@ -1,0 +1,1 @@
+Empty interface can be used to infer any types
