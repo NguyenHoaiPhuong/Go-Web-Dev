@@ -18,4 +18,8 @@ Definition:
 
 Explanation:
 - 01_Get-Started: The add() function returns a closure. Each closure is bound to its own sum variable
-- 02_Fibonacci-Closure: the func Fibonacci() return a function (a closure) that returns successive fibonacci numbers {0, 1, 1, 2, 3, 5...}
+- 02_Isolating-Data: the func Fibonacci() return a function (a closure) that returns successive fibonacci numbers {0, 1, 1, 2, 3, 5...}
+- 03_Wrapping-Functions: func timed returns a closure function which is used in http.HandleFunc
+- 04_Accessing-Unavailable-Data: Handler function hello receives the arg Database
+- 05_Sort-Package
+- 06_Deffering-Work
