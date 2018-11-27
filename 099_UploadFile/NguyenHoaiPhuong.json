@@ -1,0 +1,858 @@
+{
+   
+   "Resume" : {
+      "StructuredResume" : {
+         "ContactMethod" : {
+            "InternetEmailAddress_main" : "hoaiphuong.nguyen.vn@gmail.com",
+            "PostalAddress_main" : {
+               "AddressLine" : "House #5, street #2, Van Lang residential area",
+               "Municipality" : "Binh Chanh district, HCMC",
+               "CountryCode" : "VN"
+            },
+            "InternetWebAddress" : [
+               {
+                  "content" : "https://github.com/NguyenHoaiPhuong",
+                  "type" : "website"
+               }
+            ],
+            "Telephone_mobile" : "+84 938 - 038 - 621"
+         },
+         "ExecutiveSummary" : "+2.5-year experience in software development with a wide range of skills:  C/ C++, Python, Qt, MFC, SQL database, BLAS, LAPACK, MPI, numerical programming and Design Patterns.",
+         "PersonName" : {
+            "FormattedName" : "Phuong Hoai Nguyen",
+            "FamilyName" : "Nguyen",
+            "GivenName" : "Phuong",
+            "MiddleName" : [
+               "Hoai"
+            ],
+            "sex" : "Female"
+         },
+         "RevisionDate" : "2018-11-20",
+         "lang" : "en",
+		 "Achievements" : [
+			"100001",
+			"100002",
+			"100003",
+			"100004"
+		 ],
+		 "Available" : "Yes",
+		 "DOB": "1986-06-21",
+         "EmploymentHistory" : [
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "Present",
+               "MonthsOfWork" : 31,
+               "LocationSummary" : {
+                  "Municipality" : "Tokyo",
+                  "CountryCode" : "JP"
+               },
+               "EmployerOrgName" : "TechnoStar Co., Ltd",
+               "Title" : [
+                  "Software Developer"
+               ],
+               "OrgName" : "TechnoStar Co., Ltd",
+               "PositionType" : "PERMANENT",
+               "InternetDomainName" : "https://github.com/NguyenHoaiPhuong/Games-by-Qt-C",
+               "JobArea" : "it",
+               "Description" : "Technostar is the leading software company in CAE (Computer Aided Engineering) field in Japan. General Businesses are\n    Development, sales, maintenance and training of Technostar products (CAE software).\n\n    Key accomplishments:\n\n    *    GUI programming by MFC Visual Studio C++ and Qt.\n\n    *    Numerical Linear Algebraic programing by C++ and BLAS - LAPACK libraries.\n\n    *    Parallel programing by using MPI library.\n\n    *    Commit and check out code by TortoiseSVN\n\n    *    References:\n\n    -    Below link consists of few small Apps which are being programmed by Qt C++.\n    https://github.com/NguyenHoaiPhuong/Games-by-Qt-C-\n    -    Below link consists of the Linear Algebraic Solver which is being programmed by C++. The purpose of this simple project is to provide a library of mathematical functions to solve Linear Algebraic problems for both dense and sparse matrices, such as matrix decomposition (A = LU, A = LLT, A = LDLT, etc), equation solving\n    AX = B, etc. Parallel programming is applied by using MPI Library.\n    https://github.com/NguyenHoaiPhuong/NumericalSolver \n    -    Data Structure and Algorithms programmed by Python.\n    https://github.com/NguyenHoaiPhuong/Data-Structure-and-Algorithms-in-Python \n    -    Data Structure and Algorithms programmed by C/C++.\n    https://github.com/NguyenHoaiPhuong/Data_Structure_And_Algorithm_In_C \n    -    Web development ``from zero to hero'' programmed by Golang.",
+               "StartDate" : "2016-05"
+            },
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "2016-04",
+               "MonthsOfWork" : 24,
+               "LocationSummary" : {
+                  "Municipality" : "Ho Chi Minh",
+                  "CountryCode" : "VN"
+               },
+               "EmployerOrgName" : "Robert Bosch Engineering & Business Solutions Ltd",
+               "Title" : [
+                  "Specialist Mechanical FEM Simulation Engineer in Mechanical Department"
+               ],
+               "OrgName" : "Robert Bosch Engineering & Business Solutions Ltd",
+               "OrgIndustry" : {
+                  "primaryIndicator" : true,
+                  "IndustryDescription" : "Automobile"
+               },
+               "PositionType" : "PERMANENT",
+               "InternetDomainName" : "https://github.com/NguyenHoaiPhuong/Go-Web-Dev",
+               "JobArea" : "engineering~mechanical",
+               "JobGrade" : "joblevel-nonmanager-low",
+               "Description" : "https://github.com/NguyenHoaiPhuong/Go-Web-Dev\n\n : Robert Bosch Engineering & Business Solutions Ltd, \n*    Products: Gasoline System, Brake System, Starter, Alternator in Automobile Industry.\n\n    *    Leader of the Gasoline System FEM team.\n\n    *    Be responsible for all Gasoline System FEM projects in mechanical group.",
+               "StartDate" : "2014-04"
+            },
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "2014-04",
+               "MonthsOfWork" : 23,
+               "LocationSummary" : {
+                  "Municipality" : "Ho Chi Minh",
+                  "CountryCode" : "VN"
+               },
+               "EmployerOrgName" : "Robert Bosch Engineering & Business Solutions Ltd",
+               "Title" : [
+                  "Senior Mechanical FEM Simulation Engineer in Mechanical Department"
+               ],
+               "OrgName" : "Robert Bosch Engineering & Business Solutions Ltd",
+               "OrgIndustry" : {
+                  "primaryIndicator" : true,
+                  "IndustryDescription" : "Automobile"
+               },
+               "PositionType" : "PERMANENT",
+               "JobArea" : "engineering~mechanical",
+               "JobGrade" : "joblevel-nonmanager-low",
+               "Description" : ": Robert Bosch Engineering & Business Solutions Ltd, \n\n    *    Products: Gasoline System, Brake System, Starter, Alternator in \n*    Prepare FEM analysis reports for automobile products:\n\n    -    Using Hypermesh for meshing model: Repairing/clean up geometry, Hexa and  Ctetra Meshing.\n\n    -    Using Abaqus for all FEM simulation, such as Static structural, Dynamics Implicit, Dynamics Explicit, Heat\n    Transfer, Thermal Mechanical Couple, Frequency, Harmonic Response...\n\n    -    Be able to solve Linear and Non-Linear problems in FEM (non-linear due to geometry, material and Boundary condition).\n\n    -    Responsible for writing Simulation reports.\n\n    -    Do presentation regarding to tasks and technical issues in front of all Mechanical Group members twice a year.\n\n    *    Discuss with Indian and German customers regarding to receiving tasks: deadline, schedule, technical issues...\n\n    *    Handle all personal process documents such as timesheet, tracking sheet and Task schedule.\n\n    *    Responsible for the Internal Training Course regarding to FEM simulation in Mechanical Group.\n\n    *    Leader of the English club in Mechanical Group. An enthusiastic partner of Japanese club in the company.",
+               "StartDate" : "2012-06"
+            },
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "2012-06",
+               "MonthsOfWork" : 6,
+               "LocationSummary" : {
+                  "Municipality" : "Ho Chi Minh",
+                  "CountryCode" : "VN"
+               },
+               "EmployerOrgName" : "PetroVietnam Engineering",
+               "Title" : [
+                  "Pipeline engineer in Offshore Pipeline Department"
+               ],
+               "OrgName" : "PetroVietnam Engineering",
+               "PositionType" : "CONTRACT",
+               "JobArea" : "oil-gas",
+               "JobGrade" : "joblevel-nonmanager-low",
+               "StartDate" : "2012-01",
+               "Description" : "*    Preparing technical reports/ drawings related to Offshore Pipeline design as follows:\n\n    -    Wall Thickness Calculation\n\n    -    On-Bottom Stability\n\n    -    Free spans and on-bottom roughness\n\n    -    Hanger flange and Tie-In spool stress analysis\n\n    -    End Expansion analysis\n\n    -    Drawings: Route optimization drawings, Alignment sheets drawings...\n\n    -    Technical specifications and Material Requisitions\n\n    -    FEM simulation for Offshore Pipeline components, such as centralizer, swivel flange...\n\n    *    Coordinating basic design activities related to the company projects: follow up of activities, schedule, check the documentations incoming and outgoing."
+            },
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "2011-10",
+               "MonthsOfWork" : 7,
+               "LocationSummary" : {
+                  "Municipality" : "Chonburi",
+                  "CountryCode" : "TH"
+               },
+               "EmployerOrgName" : "Danieli Far East Company",
+               "Title" : [
+                  "Senior Mechanical engineer in Continuous Casting Department"
+               ],
+               "OrgName" : "Danieli Far East Company",
+               "PositionType" : "CONTRACT",
+               "JobArea" : "engineering~mechanical",
+               "JobGrade" : "joblevel-nonmanager-low",
+               "StartDate" : "2011-04",
+               "Description" : "*    Responsible for FEM analysis tasks for continuous casting machines: Using Siemens NX for static structure analysis and model analysis. Responsible for writing Simulation reports.\n\n    *    Coordinate basic design activities related to Danieli Far East projects: follow up of activities, schedule, check the documentations incoming and outgoing."
+            },
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "2011-04",
+               "MonthsOfWork" : 24,
+               "LocationSummary" : {
+                  "Municipality" : "Ho Chi Minh",
+                  "CountryCode" : "VN"
+               },
+               "EmployerOrgName" : "Danieli Vietnam Company",
+               "Title" : [
+                  "Mechanical engineer in Continuous Casting Department"
+               ],
+               "OrgName" : "Danieli Vietnam Company",
+               "PositionType" : "PERMANENT",
+               "JobArea" : "engineering",
+               "JobGrade" : "joblevel-nonmanager-low",
+               "StartDate" : "2009-04",
+               "Description" : "*    Develop all continuous casting documents regarding to mechanics and fluids systems supplied by Danieli Group such as:\n\n    -    2D drawings for Continuous casting: CCM layouts, continuous casting machine assembly drawings, part\n    drawings,...\n\n    -    3D models for continuous casting layouts by Autodesk Inventor\n\n    -    Bill of Materials.\n\n    -    Manual analysis reports for continuous casting machines, such as stress, deflection vibration, buckling...\n\n    *    Coordinate basic design activities related to DANIELI projects: follow up of activities, schedule, check the documentations incoming and outgoing.\n\n    *    Communicate with other departments such as DWU, DMH department and also with civil and electrical departments in order to complete CCM layout."
+            },
+            {
+               "employerOrgType" : "soleEmployer",
+               "EndDate" : "2009-01",
+               "MonthsOfWork" : 35,
+               "EmployerOrgName" : "Ho Chi Minh City University of Technology",
+               "Title" : [
+                  "Research student"
+               ],
+               "OrgName" : "Faculty of Mechanical Engineering",
+               "PositionType" : "PERMANENT",
+               "JobArea" : "graduate",
+               "StartDate" : "2006-03",
+               "Description" : "Working in the Machine Design Laboratory of Mechatronics Department \n*    Design the general mechatronics system:\n\n    -    Making 3D mechanical model for mechanical systems by Solidworks and making 2D drawings by Autocad\n\n    -    Making electronic circuits by Orcad.\n\n    *    Programming:\n\n    -    Using Visual basic to program the interface for connecting the Micro-controller with the computer by COM port.\n\n    -    Using C/C++ to program the Micro-controller.\n\n    *    Responsible for writing scientific reports and articles."
+            }
+         ],
+         "Competency" : [
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "FEM Analysis",
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "FEM Analysis"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Teamwork",
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "Teamwork"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "dynamics analysis",
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "dynamics analysis"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "heat transfer analysis",
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "heat transfer analysis"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "numerical programming",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "numerical programming"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "software development",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "software development"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "static structural analysis",
+               "description" : "Skill",
+               "skillAliasArray" : [
+                  "static structural analysis"
+               ]
+            },
+            {
+               "skillLevel" : 100,
+               "skillName" : "GUI Applications",
+               "description" : "Skill > IT",
+               "auth" : true,
+               "skillUsed" : {
+                  "value" : 31,
+                  "type" : "Months"
+               },
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "lastUsed" : "2018",
+               "skillProficiency" : "EXCELLENT",
+               "skillAliasArray" : [
+                  "GUI Applications",
+                  "GUI programming"
+               ]
+            },
+            {
+               "skillLevel" : 99,
+               "skillName" : "C++",
+               "description" : "Skill > IT",
+               "auth" : true,
+               "skillUsed" : {
+                  "value" : 31,
+                  "type" : "Months"
+               },
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > ccplusplus"
+               },
+               "lastUsed" : "2018",
+               "skillProficiency" : "EXCELLENT",
+               "skillAliasArray" : [
+                  "C++"
+               ]
+            },
+            {
+               "skillLevel" : 98,
+               "skillName" : "TortoiseSVN",
+               "description" : "Skill > IT",
+               "auth" : true,
+               "skillUsed" : {
+                  "value" : 31,
+                  "type" : "Months"
+               },
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "lastUsed" : "2018",
+               "skillProficiency" : "EXCELLENT",
+               "skillAliasArray" : [
+                  "TortoiseSVN"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 85,
+               "skillName" : "Microsoft Excel",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Microsoft Excel",
+                  "excel"
+               ],
+               "skillProficiency" : "EXCELLENT"
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 85,
+               "skillName" : "Microsoft Outlook",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Microsoft Outlook",
+                  "outlook"
+               ],
+               "skillProficiency" : "EXCELLENT"
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 85,
+               "skillName" : "Microsoft PowerPoint",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Microsoft PowerPoint",
+                  "power point"
+               ],
+               "skillProficiency" : "EXCELLENT"
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 85,
+               "skillName" : "Microsoft Word",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > soft-package-doc"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Microsoft Word",
+                  "Proficient in Microsoft Office word"
+               ],
+               "skillProficiency" : "EXCELLENT"
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "ANSYS",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "ANSYS"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Abaqus Unified FEA",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Abaqus Unified FEA",
+                  "Abaqus"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Autocad",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > graphics-package-eng"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Autocad"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Autodesk Inventor",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > graphics-package-eng"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Autodesk Inventor",
+                  "Inventor"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "C Programming Language",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > ccplusplus > progr-lang"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "C Programming Language",
+                  "C"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "DBMS",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "DBMS",
+                  "Database management system"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Design Patterns",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Design Patterns"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Go programming language",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > progr-lang"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Go programming language",
+                  "Golang"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "HyperMesh",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "HyperMesh"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Microsoft Foundation Classes",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Microsoft Foundation Classes",
+                  "MFC"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Nx",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Nx"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Parallel Programming",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Parallel Programming"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Python Programming",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it > progr-lang"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Python Programming",
+                  "Python"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "Qt",
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Qt"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "SQL",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "SQL"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "SQLite",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "SQLite"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Solidworks",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Solidworks"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 13,
+               "skillName" : "Unigraphics",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "description" : "Skill > IT",
+               "skillAliasArray" : [
+                  "Unigraphics"
+               ]
+            },{
+               "skillLevel" : 100,
+               "skillName" : "Analyst/Programmer",
+               "description" : "Held Position",
+               "auth" : true,
+               "skillUsed" : {
+                  "value" : 31,
+                  "type" : "Months"
+               },
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "it"
+               },
+               "lastUsed" : "2018",
+               "skillProficiency" : "EXCELLENT",
+               "skillAliasArray" : [
+                  "Analyst/Programmer",
+                  "Software Developer"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 13,
+               "skillName" : "Student",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "graduate"
+               },
+               "description" : "Held Position",
+               "skillAliasArray" : [
+                  "Student"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 91,
+               "skillName" : "Baccalaureate Degree",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "bachelors"
+               },
+               "description" : "Degree/Qualification",
+               "skillAliasArray" : [
+                  "Baccalaureate Degree",
+                  "Baccalaureate"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 12,
+               "skillName" : "Bachelor of Mechanical Engineering",
+               "description" : "Degree/Qualification",
+               "skillAliasArray" : [
+                  "Bachelor of Mechanical Engineering"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 82,
+               "skillName" : "Award of Vietnamese National Mathematical Olympiad",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "Award of Vietnamese National Mathematical Olympiad"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 82,
+               "skillName" : "Certificate of Achievement",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "Certificate of Achievement"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 82,
+               "skillName" : "Doosan award",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "Doosan award"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 82,
+               "skillName" : "Japanese Language Proficiency Test",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "Japanese Language Proficiency Test",
+                  "JLPT"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 82,
+               "skillName" : "Petronas English award",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "Petronas English award"
+               ]
+            },
+            {
+               "auth" : false,
+               "skillLevel" : 82,
+               "skillName" : "Sorun award",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "Sorun award"
+               ]
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 82,
+               "skillName" : "TOEIC",
+               "TaxonomyId" : {
+                  "idOwner" : "DAXTRA",
+                  "description" : "certification"
+               },
+               "description" : "Degree/Qualification > Professional",
+               "skillAliasArray" : [
+                  "TOEIC",
+                  "TOEIC 845"
+               ],
+               "Grade" : "845"
+            },
+            {
+               "auth" : true,
+               "skillLevel" : 100,
+               "skillName" : "industry~engineering~mechanical",
+               "skillCount" : 3,
+               "description" : "Industry"
+            }
+         ],
+         "Languages" : [
+            {
+               "Speak" : true,
+               "Proficiency" : "INTERMEDIATE",
+               "LanguageCode" : "ja",
+               "Write" : true,
+               "Read" : true
+            },
+            {
+               "Speak" : true,
+               "Proficiency" : "INTERMEDIATE",
+               "LanguageCode" : "en",
+               "Write" : true,
+               "Read" : true
+            },
+            {
+               "Speak" : true,
+               "Proficiency" : "BASIC",
+               "LanguageCode" : "zh",
+               "Write" : true,
+               "Read" : true
+            }
+         ],
+         "EducationHistory" : [
+            {
+               "EndDate" : "2004",
+               "Comments" : "Top 30th of the best mathematical students in \n    *    Baccalaureate: Good rank.\n\n    *    Third prize for Vietnamese National Mathematical Olympiad 2003.",
+               "LocationSummary" : {
+                  "CountryCode" : "VN"
+               },
+               "Major" : "Vietnamese",
+               "schoolType" : "highschool",
+               "Degree" : {
+                  "degreeType" : "bachelors",
+                  "DegreeName" : "Baccalaureate Degree",
+                  "DegreeDate" : "2004"
+               },
+               "StartDate" : "2001",
+               "SchoolName" : "Le Quy Don High School for Gifted"
+            },
+            {
+               "EndDate" : "2009",
+               "Comments" : "One of the best students in the University\n\n    *    Bachelor of Mechanical Engineering: Very Good rank.\n\n    *    Silver medal for the second position of the promotion in the Faculty of Mechanics (2nd/ 400).\n\n    *    GPA: 8.33/10 with Bachelor Thesis evaluated by 9.10/10 grade point.\n\n    *    Award of Vietnamese National Mathematical Olympiad for Student 2005.\n\n    *    Student grants:",
+               "LocationSummary" : {
+                  "Municipality" : "Dist. 10, HCM City",
+                  "CountryCode" : "VN"
+               },
+               "schoolType" : "university",
+               "Degree" : {
+                  "degreeType" : "intermediategraduate",
+                  "DegreeDate" : "2009"
+               },
+               "StartDate" : "2004",
+               "SchoolName" : "Ho Chi Minh City University of Technology"
+            },
+            {
+               "schoolType" : "TRAINING",
+               "Degree" : {
+                  "degreeType" : "professional",
+                  "DegreeName" : "Petronas English award",
+                  "DegreeDate" : "2008"
+               }
+            }
+         ]
+      },
+      "ExperienceSummary" : {
+         "ExecutiveBrief" : "Phuong Hoai Nguyen is a resident of Binh Chanh district, HCMC, VN. She has been working in the Engineering~mechanical occupational sector for more than 12 years. Currently she is employed as a Software Developer at TechnoStar Co., Ltd. So far Phuong has not gained any managerial experience.",
+         "HighestEducationalLevel" : "bachelors",
+         "TotalMonthsOfWorkExperience" : 150,
+         "TotalYearsOfWorkExperience" : 12
+      },
+      "FileStruct" : {
+         "attachment" : [
+            {
+               "conv" : "yes",
+               "lang" : "EN",
+               "doc_type" : "cv",
+               "fname" : "0966494422309861",
+               "content" : "/tmp/soap_377168873182626",
+               "ftype" : "pdf"
+            }
+         ],
+         "filename" : "/tmp/soap_377168873182626"
+      },
+      "src" : "DAXTRA-CVX schema:2.0.35 release:0.24.0.57870 rdate:2018-07-30",
+      "TextResume" : "\n\n{{HEADER}}\n\nNGUYEN H. Ph's Curriculum Vitae                                                                                           2 of 3\n\n{{END_HEADER}}\n\n{{DOCUMENT_DATESTAMP}} 2018-11-20 11:50:01 {{END_DOCUMENT_DATESTAMP}}\n\n                                                              HOAI PHUONG NGUYEN\n\nTechnoStar Co., Ltd, Tokyo, Japan,\n\nSoftware Developer,\n\nPortfolio: https://github.com/NguyenHoaiPhuong\n\nEmail: hoaiphuong.nguyen.vn@gmail.com\n\nMobile: (+84) 938 - 038 - 621.\n\nAddress: House #5, street #2, Van Lang residential area, Binh Chanh district, HCMC, Vietnam.\n\nPERSONAL PROFILE\n\n+2.5-year experience in software development with a wide range of skills:  C/ C++, Python, Qt, MFC, SQL database, BLAS, LAPACK, MPI, numerical programming and Design Patterns.\n\n+7-year experience in Machine design and FEM Analysis.\n\n+ Working abroad: 2.5 years in Japan, 1 month in Germany, 2 months in India and 6 months in Thailand.\n\nEDUCATIONAL QUALIFICATIONS\n\n2004 - 2009: Ho Chi Minh City University of Technology, 297 Ly Thuong Kiet Street, Dist. 10, HCM City, Viet Nam\n\n    One of the best students in the University\n\n    *    Bachelor of Mechanical Engineering: Very Good rank.\n\n    *    Silver medal for the second position of the promotion in the Faculty of Mechanics (2nd/ 400).\n\n    *    GPA: 8.33/10 with Bachelor Thesis evaluated by 9.10/10 grade point.\n\n    *    Award of Vietnamese National Mathematical Olympiad for Student 2005.\n\n    *    Student grants:\n\n         - Annual awards for Honor Student of the University  from 2004 to 2009 (10 semesters).\n\n         - Doosan award for excellent student in 2008.\n\n         - Sorun award for excellent student in 2008.\n\n         - Petronas English award in 2008.\n\n2001 - 2004: Le Quy Don High School for Gifted Student:\n\n    Top 30th of the best mathematical students in Viet Nam.\n\n    *    Baccalaureate: Good rank.\n\n    *    Third prize for Vietnamese National Mathematical Olympiad 2003.\n\n    *    Gold medal in the 30/4 Mathematical Olympiad (competition for students from Viet Nam's South) 2003.\n\n    *    Gold medal in the 30/4 Mathematical Olympiad (competition for students from Viet Nam's South) 2002.\n\n    *    Third prize for Mathematics and Youth Magazine 2002.\n\nINFORMATICS\n\n    *    Programming Tools: C/C++, Python, Golang.\n\n    *    GUI programming: MFC, Qt.\n\n    *    Parallel programming: MPI.\n\n    *    Numerical Linear Algebraic Library: BLAS, LAPACK.\n\n    *    Database management system: SQLite, Postgre.\n\n    *    Mastering in Autocad/Autocad mechanical, Inventor, Solidworks and Unigraphics for mechanical design.\n\n    *    Mastering in Hypermesh, NX, Ansys and Abaqus for static structural analysis, dynamics analysis, vibration analysis and heat transfer analysis.\n\nNGUYEN H. Ph's Curriculum Vitae                                                                                           1 of 3\n\n    *    Others: Proficient in Microsoft Office word/excel/power point/outlook.\n\nFOREIGN LANGUAGE AND SKILLS\n\n    *    English: Good at reading, writing, listening and speaking with TOEIC 845.\n\n    *    Japanese: Good at speaking and listening with JLPT N3.\n\n    *    Chinese: Basic.\n\n    *    Presentation and soft skill: Soft skill Certificate of Achievement from G & H Management Service.\n\n    *    Adapting to new surroundings easily.\n\n    *    Being able to work in teamwork or alone.\n\nPROFESSIONAL EXPERIENCES ,\n05/2016 - Now: TechnoStar Co., Ltd, Tokyo, Japan\n    Software Developer\n\n    Technostar is the leading software company in CAE (Computer Aided Engineering) field in Japan. General Businesses are\n    Development, sales, maintenance and training of Technostar products (CAE software).\n\n    Key accomplishments:\n\n    *    GUI programming by MFC Visual Studio C++ and Qt.\n\n    *    Numerical Linear Algebraic programing by C++ and BLAS - LAPACK libraries.\n\n    *    Parallel programing by using MPI library.\n\n    *    Commit and check out code by TortoiseSVN\n\n    *    References:\n\n         -    Below link consists of few small Apps which are being programmed by Qt C++.\n              https://github.com/NguyenHoaiPhuong/Games-by-Qt-C-\n         -    Below link consists of the Linear Algebraic Solver which is being programmed by C++. The purpose of this simple project is to provide a library of mathematical functions to solve Linear Algebraic problems for both dense and sparse matrices, such as matrix decomposition (A = LU, A = LLT, A = LDLT, etc), equation solving\n              AX = B, etc. Parallel programming is applied by using MPI Library.\n              https://github.com/NguyenHoaiPhuong/NumericalSolver \n         -    Data Structure and Algorithms programmed by Python.\n              https://github.com/NguyenHoaiPhuong/Data-Structure-and-Algorithms-in-Python \n         -    Data Structure and Algorithms programmed by C/C++.\n              https://github.com/NguyenHoaiPhuong/Data_Structure_And_Algorithm_In_C \n         -    Web development ``from zero to hero'' programmed by Golang.\n              https://github.com/NguyenHoaiPhuong/Go-Web-Dev\n\n04/2014 - 04/2016: Robert Bosch Engineering & Business Solutions Ltd, Ho Chi Minh, Vietnam\n\n    Specialist Mechanical FEM Simulation Engineer in Mechanical Department\n\n    *    Products: Gasoline System, Brake System, Starter, Alternator in Automobile Industry.\n\n    *    Leader of the Gasoline System FEM team.\n\n    *    Be responsible for all Gasoline System FEM projects in mechanical group.\n\n06/2012- 04/2014: Robert Bosch Engineering & Business Solutions Ltd, Ho Chi Minh, Vietnam\n\n    Senior Mechanical FEM Simulation Engineer in Mechanical Department\n\n    *    Products: Gasoline System, Brake System, Starter, Alternator in Automobile Industry.\n\n    *    Prepare FEM analysis reports for automobile products:\n\n         -    Using Hypermesh for meshing model: Repairing/clean up geometry, Hexa and  Ctetra Meshing.\n\n         -    Using Abaqus for all FEM simulation, such as Static structural, Dynamics Implicit, Dynamics Explicit, Heat\n              Transfer, Thermal Mechanical Couple, Frequency, Harmonic Response...\n\n         -    Be able to solve Linear and Non-Linear problems in FEM (non-linear due to geometry, material and Boundary condition).\n\n         -    Responsible for writing Simulation reports.\n\n         -    Do presentation regarding to tasks and technical issues in front of all Mechanical Group members twice a year.\n\n    *    Discuss with Indian and German customers regarding to receiving tasks: deadline, schedule, technical issues...\n\n    *    Handle all personal process documents such as timesheet, tracking sheet and Task schedule.\n\n    *    Responsible for the Internal Training Course regarding to FEM simulation in Mechanical Group.\n\n    *    Leader of the English club in Mechanical Group. An enthusiastic partner of Japanese club in the company.\n\n01/2012 - 06/2012: PetroVietnam Engineering Consultancy JSC, Ho Chi Minh, Vietnam\n\n    Pipeline engineer in Offshore Pipeline Department\n\n    *    Preparing technical reports/ drawings related to Offshore Pipeline design as follows:\n\n         -    Wall Thickness Calculation\n\n         -    On-Bottom Stability\n\n         -    Free spans and on-bottom roughness\n\n         -    Hanger flange and Tie-In spool stress analysis\n\n         -    End Expansion analysis\n\n         -    Drawings: Route optimization drawings, Alignment sheets drawings...\n\n         -    Technical specifications and Material Requisitions\n\n         -    FEM simulation for Offshore Pipeline components, such as centralizer, swivel flange...\n\n    *    Coordinating basic design activities related to the company projects: follow up of activities, schedule, check the documentations incoming and outgoing.\n\n04/2011 - 10/2011: Danieli Far East Company, Chonburi, Thailand\n\n    Senior Mechanical engineer in Continuous Casting Department\n\n    *    Responsible for FEM analysis tasks for continuous casting machines: Using Siemens NX for static structure analysis and model analysis. Responsible for writing Simulation reports.\n\n    *    Coordinate basic design activities related to Danieli Far East projects: follow up of activities, schedule, check the documentations incoming and outgoing.\n\n04/2009 - 04/2011: Danieli Vietnam Company, Ho Chi Minh, Vietnam\n\n    Mechanical engineer in Continuous Casting Department\n\n    *    Develop all continuous casting documents regarding to mechanics and fluids systems supplied by Danieli Group such as:\n\n         -    2D drawings for Continuous casting: CCM layouts, continuous casting machine assembly drawings, part\n              drawings,...\n\n         -    3D models for continuous casting layouts by Autodesk Inventor\n\n         -    Bill of Materials.\n\n         -    Manual analysis reports for continuous casting machines, such as stress, deflection vibration, buckling...\n\n    *    Coordinate basic design activities related to DANIELI projects: follow up of activities, schedule, check the documentations incoming and outgoing.\n\n    *    Communicate with other departments such as DWU, DMH department and also with civil and electrical departments in order to complete CCM layout.\n\n03/2006 - 01/2009: Faculty of Mechanical Engineering, Ho Chi Minh City University of Technology\n\n    Working in the Machine Design Laboratory of Mechatronics Department as a Research student\n\n    *       Design the general mechatronics system:\n\n         -    Making 3D mechanical model for mechanical systems by Solidworks and making 2D drawings by Autocad\n\n         -    Making electronic circuits by Orcad.\n\n    *    Programming:\n\n         -    Using Visual basic to program the interface for connecting the Micro-controller with the computer by COM port.\n\n         -    Using C/C++ to program the Micro-controller.\n\n    *    Responsible for writing scientific reports and articles.\n\n",
+      "ParserInfo" : {
+         "ConverterRelease" : "0.17.0.57870",
+         "ParserConfiguration" : "{max_len=50000} {tel_flag=} {send_zip=} {fast_conv=} {DEF_LOCAL=} {sdate=0} {no_email_body=0} {do_clever_zoning=0} {keep_zone_span=0} {keep_span=1} {complex=1} {accept_langs=} {not_accept_langs=} {prefer_lang_cv=} {pers_only=0} {projects_off=0} {tree_search_on=0} {all_skills=0} {turbo=0} {split_language=0} {picture=0} {picture_inline=0} {debug=0} {ocr_allowed=0} {name_space=0} {charset=} {hrxml_upgrade_edu_hist=0}{hrxml_add_languages_section=1}{spool=} {docID=} {user=hrboss picture_inline=no} ",
+         "ParserRelease" : "0.24.0.57870",
+         "ParserReleaseDate" : "2018-07-30",
+         "ConverterReleaseDate" : "2018-07-30",
+         "ParserSchema" : "2.0.35"
+      }
+   }
+}
