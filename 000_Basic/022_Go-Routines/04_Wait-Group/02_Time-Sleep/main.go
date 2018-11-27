@@ -16,17 +16,17 @@ func main() {
 }
 
 func foo() {
-	for i := 0; i < 45; i++ {
-		fmt.Println("Foo:", i)
-		time.Sleep(3 * time.Millisecond)
+	for i := 0; i < 20; i++ {
+		fmt.Printf("foo #%v\n", i)
+		time.Sleep(1 * time.Second)
 	}
 	wg.Done()
 }
 
 func bar() {
-	for i := 0; i < 45; i++ {
-		fmt.Println("Bar:", i)
-		time.Sleep(20 * time.Millisecond)
+	for i := 0; i < 20; i++ {
+		fmt.Printf("bar #%v\n", i)
+		time.Sleep(2 * time.Second)
 	}
 	wg.Done()
 }
