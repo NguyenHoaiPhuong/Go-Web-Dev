@@ -18,7 +18,7 @@ func (sc *SafeCounter) Inc(key string) {
 	sc.mux.Lock()
 	sc.v[key]++
 	sc.mux.Unlock()
-	//wg.Done()
+	wg.Done()
 }
 
 // Value returns the current value of the counter for the given key
