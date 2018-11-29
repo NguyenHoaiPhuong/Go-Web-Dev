@@ -1,0 +1,8 @@
+{
+	"databaseConfig": 
+	{
+		"dialect":	"postgres",
+		"source":	"host=localhost port=5432 user=akagi password=1234 dbname=testgo sslmode=disable"
+	}
+}
+
