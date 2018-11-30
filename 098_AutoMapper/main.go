@@ -7,7 +7,6 @@ import (
 	"errors"
 	"fmt"
 
-	_ "github.com/PeteProgrammer/go-automapper"
 	automapper "github.com/PeteProgrammer/go-automapper"
 )
 
