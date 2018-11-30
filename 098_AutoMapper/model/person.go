@@ -8,7 +8,7 @@ type Person struct {
 
 // Human includes name, sex
 type Human struct {
-	Name *PersonName
+	Name *HumanName
 	Sex  string
 }
 
@@ -17,6 +17,13 @@ type PersonName struct {
 	First  string `json:"first"`
 	Last   string `json:"last"`
 	Middle string `json:"middle"`
+}
+
+// HumanName includes first, last and middle names
+type HumanName struct {
+	First string `json:"first"`
+	Last  string `json:"last"`
+	Mid   string `json:"middle"`
 }
 
 // Person includes name, sex, age
