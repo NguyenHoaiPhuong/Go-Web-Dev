@@ -66,3 +66,15 @@ func ConvertToJSON(object interface{}) ([]byte, error.Error) {
 	}
 	return bs, nil
 }
+
+// ConvertFromJSON converts json object stored in reader and save into user object
+func ConvertFromJSON(r io.Reader, object interface{}) error.Error {
+	var err error.ErrorImp
+	osErr := json.NewDecoder(r).Decode(&object)
+	if osErr != nil {
+		err.InsertErrorMessage(osErr.Error())
+		err.InsertErrorMessage(error.ErrorJSONConvert)
+		return err
+	}
+	return nil
+}

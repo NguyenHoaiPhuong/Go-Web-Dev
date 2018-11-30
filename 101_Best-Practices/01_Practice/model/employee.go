@@ -1,12 +1,8 @@
 package model
 
-import (
-	"github.com/jinzhu/gorm"
-)
-
 // Employee definition
 type Employee struct {
-	gorm.Model
+	ID     string `gorm:"primary_key" json:"id"`
 	Name   string `gorm:"unique" json:"name"`
 	City   string `json:"city"`
 	Age    int    `json:"age"`

@@ -16,7 +16,6 @@ import (
 type App struct {
 	Rooter *mux.Router
 	DB     *gorm.DB
-	Host   string
 }
 
 // Run App
@@ -28,6 +27,8 @@ func (a *App) Run() {
 		ReadTimeout:  15 * time.Second,
 	}
 	log.Fatal(srv.ListenAndServe())
+
+	defer a.DB.Close()
 }
 
 // Initialize init App
