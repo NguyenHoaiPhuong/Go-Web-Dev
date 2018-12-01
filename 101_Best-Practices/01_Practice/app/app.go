@@ -14,14 +14,14 @@ import (
 
 // App has router and db instances
 type App struct {
-	Rooter *mux.Router
+	Router *mux.Router
 	DB     *gorm.DB
 }
 
 // Run App
 func (a *App) Run() {
 	srv := &http.Server{
-		Handler:      a.Rooter,
+		Handler:      a.Router,
 		Addr:         ":9000",
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
@@ -49,7 +49,7 @@ func (a *App) initDatabase() {
 }
 
 func (a *App) initRouter() {
-	a.Rooter = mux.NewRouter()
+	a.Router = mux.NewRouter()
 	a.Get("/employees", a.GetAllEmployees)
 	a.Post("/employees", a.CreateEmployee)
 	a.Get("/employees/{id}", a.GetEmployee)
@@ -61,22 +61,22 @@ func (a *App) initRouter() {
 
 // Get wraps the router for GET method
 func (a *App) Get(path string, f func(w http.ResponseWriter, r *http.Request)) {
-	a.Rooter.HandleFunc(path, f).Methods("GET")
+	a.Router.HandleFunc(path, f).Methods("GET")
 }
 
 // Post wraps the router for POST method
 func (a *App) Post(path string, f func(w http.ResponseWriter, r *http.Request)) {
-	a.Rooter.HandleFunc(path, f).Methods("POST")
+	a.Router.HandleFunc(path, f).Methods("POST")
 }
 
 // Put wraps the router for PUT method
 func (a *App) Put(path string, f func(w http.ResponseWriter, r *http.Request)) {
-	a.Rooter.HandleFunc(path, f).Methods("PUT")
+	a.Router.HandleFunc(path, f).Methods("PUT")
 }
 
 // Delete wraps the router for DELETE method
 func (a *App) Delete(path string, f func(w http.ResponseWriter, r *http.Request)) {
-	a.Rooter.HandleFunc(path, f).Methods("DELETE")
+	a.Router.HandleFunc(path, f).Methods("DELETE")
 }
 
 // GetAllEmployees gets all employees' info in the database
