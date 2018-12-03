@@ -56,6 +56,30 @@ func (svc *Service) CreateNewBucket(bucketName string) error {
 	return nil
 }
 
+// DeleteBucket deletes a bucket in S3
+func (svc *Service) DeleteBucket(bucketName string) error {
+	_, err := svc.Client.DeleteBucket(&s3.DeleteBucketInput{
+		Bucket: aws.String(bucketName),
+	})
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to delete bucket %s, %v", bucketName, err)
+		return err
+	}
+
+	// Wait until bucket is deleted before finishing
+	fmt.Printf("Waiting for bucket %s to be deleted...\n", bucketName)
+
+	err = svc.Client.WaitUntilBucketNotExists(&s3.HeadBucketInput{
+		Bucket: aws.String(bucketName),
+	})
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error occurred while waiting for bucket to be deleted, %v\n", bucketName)
+		return err
+	}
+	fmt.Printf("Bucket %s was deleted\n", bucketName)
+	return nil
+}
+
 // ListBuckets lists all buckets
 func (svc *Service) ListBuckets() error {
 	result, err := svc.Client.ListBuckets(nil)
@@ -92,6 +116,42 @@ func (svc *Service) ListBucketItems(bucketName string) error {
 		fmt.Println("Storage class:", *item.StorageClass)
 		fmt.Println("")
 	}
+	return nil
+}
+
+// DeleteBucketItem deletes one item in a bucket
+func (svc *Service) DeleteBucketItem(fileName string, bucketName string) error {
+	_, err := svc.Client.DeleteObject(&s3.DeleteObjectInput{
+		Bucket: aws.String(bucketName),
+		Key:    aws.String(fileName),
+	})
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to delete object %s in the bucket %s, %v\n", fileName, bucketName, err)
+		return err
+	}
+	err = svc.Client.WaitUntilObjectNotExists(&s3.HeadObjectInput{
+		Bucket: aws.String(bucketName),
+		Key:    aws.String(fileName),
+	})
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Error occurred while waiting for object %s to be deleted, %v\n", fileName, err)
+		return err
+	}
+	fmt.Printf("Deleted object %s from bucket %s\n", fileName, bucketName)
+	return nil
+}
+
+// DeleteAllBucketItems deletes all items in a bucket
+func (svc *Service) DeleteAllBucketItems(bucketName string) error {
+	iter := s3manager.NewDeleteListIterator(svc.Client, &s3.ListObjectsInput{
+		Bucket: aws.String(bucketName),
+	})
+	err := s3manager.NewBatchDeleteWithClient(svc.Client).Delete(aws.BackgroundContext(), iter)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to delete objects from bucket %s, %v\n", bucketName, err)
+		return err
+	}
+	fmt.Printf("Deleted object(s) from bucket: %s", bucketName)
 	return nil
 }
 

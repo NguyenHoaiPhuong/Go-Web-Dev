@@ -44,6 +44,22 @@ func (a *App) initAWSS3() {
 	a.s3Service.Init(a.config.S3Config)
 }
 
+// AWSS3CreateNewBucket creates new bucket
+func (a *App) AWSS3CreateNewBucket(bucketName string) {
+	err := a.s3Service.CreateNewBucket(bucketName)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// AWSS3DeleteBucket deletes a bucket
+func (a *App) AWSS3DeleteBucket(bucketName string) {
+	err := a.s3Service.DeleteBucket(bucketName)
+	if err != nil {
+		panic(err)
+	}
+}
+
 // AWSS3ListBuckets lists all buckets
 func (a *App) AWSS3ListBuckets() {
 	err := a.s3Service.ListBuckets()
@@ -60,12 +76,14 @@ func (a *App) AWSS3ListBucketItems(bucketName string) {
 	}
 }
 
-// AWSS3CreateNewBucket creates new bucket
-func (a *App) AWSS3CreateNewBucket(bucketName string) {
-	err := a.s3Service.CreateNewBucket(bucketName)
-	if err != nil {
-		panic(err)
-	}
+// AWSS3DeleteBucketItem deletes one item in a bucket
+func (a *App) AWSS3DeleteBucketItem(fileName string, bucketName string) {
+	a.s3Service.DeleteBucketItem(fileName, bucketName)
+}
+
+// AWSS3DeleteAllBucketItems deletes all items in a bucket
+func (a *App) AWSS3DeleteAllBucketItems(bucketName string) {
+	a.s3Service.DeleteAllBucketItems(bucketName)
 }
 
 // AWSS3UploadFileToBucket uploads a file to a bucket

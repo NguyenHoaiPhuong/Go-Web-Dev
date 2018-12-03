@@ -9,8 +9,11 @@ type Actions interface {
 	Init(cf *config.S3Config)
 
 	CreateNewBucket(string) error
+	DeleteBucket(string) error
 	ListBuckets() error
 	ListBucketItems(string) error
+	DeleteBucketItem(string, string) error
+	DeleteAllBucketItems(string) error
 	UploadFileToBucket(string, string) error
 	DownloadFileFromBucket(string, string) error
 }
