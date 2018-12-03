@@ -7,5 +7,9 @@ import (
 // Actions includes all functions related to S3
 type Actions interface {
 	Init(cf *config.S3Config)
-	ListBuckets()
+
+	CreateNewBucket(string) error
+	ListBuckets() error
+	ListBucketItems(string) error
+	UploadFileToBucket(string, string) error
 }

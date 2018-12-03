@@ -12,9 +12,12 @@ import (
 
 // App implements actions
 type App struct {
-	Config    *config.Config
-	Router    *mux.Router
-	S3Service *awss3.Service
+	appActions
+	s3Actions
+
+	config    *config.Config
+	router    *mux.Router
+	s3Service *awss3.Service
 }
 
 // Init initializes settings
@@ -26,25 +29,57 @@ func (a *App) Init() {
 
 func (a *App) initConfig() {
 	var err error
-	a.Config, err = config.GetConfig("resource/config.json")
+	a.config, err = config.GetConfig("resource/config.json")
 	if err != nil {
 		log.Fatalln(err.Error())
 	}
 }
 
 func (a *App) initRouter() {
-	a.Router = mux.NewRouter()
+	a.router = mux.NewRouter()
 }
 
 func (a *App) initAWSS3() {
-	a.S3Service = new(awss3.Service)
-	a.S3Service.Init(a.Config.S3Config)
+	a.s3Service = new(awss3.Service)
+	a.s3Service.Init(a.config.S3Config)
+}
+
+// AWSS3ListBuckets lists all buckets
+func (a *App) AWSS3ListBuckets() {
+	err := a.s3Service.ListBuckets()
+	if err != nil {
+		panic(err)
+	}
+}
+
+// AWSS3ListBucketItems lists all objects in the buckets
+func (a *App) AWSS3ListBucketItems(bucketName string) {
+	err := a.s3Service.ListBucketItems(bucketName)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// AWSS3CreateNewBucket creates new bucket
+func (a *App) AWSS3CreateNewBucket(bucketName string) {
+	err := a.s3Service.CreateNewBucket(bucketName)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// AWSS3UploadFileToBucket uploads a file to bucket
+func (a *App) AWSS3UploadFileToBucket(fileName string, bucketName string) {
+	err := a.s3Service.UploadFileToBucket(fileName, bucketName)
+	if err != nil {
+		panic(err)
+	}
 }
 
 // Run runs the web app server
 func (a *App) Run() {
 	srv := &http.Server{
-		Handler:      a.Router,
+		Handler:      a.router,
 		Addr:         ":9000",
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
