@@ -15,8 +15,9 @@ import (
 type Service struct {
 	Actions
 
-	Client   *s3.S3
-	Uploader *s3manager.Uploader
+	Client     *s3.S3
+	Uploader   *s3manager.Uploader
+	Downloader *s3manager.Downloader
 }
 
 // Init initializes settings
@@ -27,6 +28,7 @@ func (svc *Service) Init(s3config *config.S3Config) {
 	sess := session.Must(session.NewSession(config))
 	svc.Client = s3.New(sess)
 	svc.Uploader = s3manager.NewUploader(sess)
+	svc.Downloader = s3manager.NewDownloader(sess)
 }
 
 // CreateNewBucket creates new bucket
@@ -93,7 +95,7 @@ func (svc *Service) ListBucketItems(bucketName string) error {
 	return nil
 }
 
-// UploadFileToBucket lists all the objects existing in the bucket with given name
+// UploadFileToBucket uploads a file to bucket
 func (svc *Service) UploadFileToBucket(fileName string, bucketName string) error {
 	file, err := os.Open(fileName)
 	if err != nil {
@@ -112,5 +114,25 @@ func (svc *Service) UploadFileToBucket(fileName string, bucketName string) error
 		return err
 	}
 	fmt.Printf("Successfully uploaded %s to %s\n", fileName, bucketName)
+	return nil
+}
+
+// DownloadFileFromBucket downloads a file from a bucket
+func (svc *Service) DownloadFileFromBucket(fileName string, bucketName string) error {
+	file, err := os.Create(fileName)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to create file %s, %v\n", fileName, err)
+		return err
+	}
+	numBytes, err := svc.Downloader.Download(file, &s3.GetObjectInput{
+		Bucket: aws.String(bucketName),
+		Key:    aws.String(fileName),
+	})
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "Unable to download item %s from bucket %s, %v", fileName, bucketName, err)
+		return err
+	}
+
+	fmt.Println("Downloaded", file.Name(), numBytes, "bytes")
 	return nil
 }

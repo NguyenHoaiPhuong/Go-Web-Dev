@@ -12,4 +12,5 @@ type Actions interface {
 	ListBuckets() error
 	ListBucketItems(string) error
 	UploadFileToBucket(string, string) error
+	DownloadFileFromBucket(string, string) error
 }

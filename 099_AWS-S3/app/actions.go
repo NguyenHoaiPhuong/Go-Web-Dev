@@ -10,4 +10,5 @@ type s3Actions interface {
 	AWSS3ListBucketItems(string)
 	AWSS3CreateNewBucket(string)
 	AWSS3UploadFileToBucket(string, string)
+	AWSS3DownloadFileFromBucket(string, string)
 }

@@ -68,9 +68,17 @@ func (a *App) AWSS3CreateNewBucket(bucketName string) {
 	}
 }
 
-// AWSS3UploadFileToBucket uploads a file to bucket
+// AWSS3UploadFileToBucket uploads a file to a bucket
 func (a *App) AWSS3UploadFileToBucket(fileName string, bucketName string) {
 	err := a.s3Service.UploadFileToBucket(fileName, bucketName)
+	if err != nil {
+		panic(err)
+	}
+}
+
+// AWSS3DownloadFileFromBucket downloads a file from a bucket
+func (a *App) AWSS3DownloadFileFromBucket(fileName string, bucketName string) {
+	err := a.s3Service.DownloadFileFromBucket(fileName, bucketName)
 	if err != nil {
 		panic(err)
 	}

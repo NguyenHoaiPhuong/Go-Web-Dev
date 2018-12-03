@@ -11,6 +11,7 @@ func main() {
 	//app.AWSS3ListBuckets()
 	//app.AWSS3CreateNewBucket("akagi21061986")
 	//app.AWSS3ListBucketItems("matchtalent.com")
-	app.AWSS3UploadFileToBucket("resource/CV_Nguyen-Hoai-Phuong_181203.docx", "akagi21061986")
+	//app.AWSS3UploadFileToBucket("resource/CV_Nguyen-Hoai-Phuong_181203.docx", "akagi21061986")
+	app.AWSS3DownloadFileFromBucket("resource/CV_Nguyen-Hoai-Phuong_181203.docx", "akagi21061986")
 	//app.Run()
 }
