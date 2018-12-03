@@ -14,6 +14,6 @@ func main() {
 	//app.AWSS3UploadFileToBucket("resource/CV_Nguyen-Hoai-Phuong_181203.docx", "akagi21061986")
 	//app.AWSS3DownloadFileFromBucket("resource/CV_Nguyen-Hoai-Phuong_181203.docx", "akagi21061986")
 	//app.AWSS3DeleteAllBucketItems("akagi21061986")
-	app.AWSS3DeleteBucket("akagi21061986")
+	//app.AWSS3DeleteBucket("akagi21061986")
 	//app.Run()
 }
