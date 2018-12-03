@@ -19,3 +19,8 @@ type C struct {
 	Name string
 	Code string
 }
+
+// D product
+type D struct {
+	Name []string
+}
