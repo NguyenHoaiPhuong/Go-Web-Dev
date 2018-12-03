@@ -12,3 +12,10 @@ type B struct {
 	Name        string
 	ExpiredDate string
 }
+
+// C product
+type C struct {
+	ID   string
+	Name string
+	Code string
+}
