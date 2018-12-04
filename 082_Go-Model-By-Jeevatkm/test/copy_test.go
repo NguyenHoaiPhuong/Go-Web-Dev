@@ -74,3 +74,18 @@ func TestCopyProductCtoD(t *testing.T) {
 	fmt.Printf("Source: %v\n", *C)
 	fmt.Printf("Destination: %v\n", *D)
 }
+
+func TestCopyProductDtoC(t *testing.T) {
+	fmt.Println("--------------------------------------")
+	fmt.Println("TestCopyProductDtoC")
+	D := &product.D{
+		Name: []string{"Hair Dry", "Machine"},
+	}
+	C := new(product.C)
+	errs := model.Copy(C, D)
+	if len(errs) > 0 {
+		t.Errorf("%v\n", errs)
+	}
+	fmt.Printf("Source: %v\n", *D)
+	fmt.Printf("Destination: %v\n", *C)
+}

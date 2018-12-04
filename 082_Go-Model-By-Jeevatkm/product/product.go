@@ -24,3 +24,15 @@ type C struct {
 type D struct {
 	Name []string
 }
+
+// E product
+type E struct {
+	Name   string `json:"name,omitempty"`
+	Region string `gorm:"column:region;unique" json:"region,omitempty"`
+}
+
+// F product
+type F struct {
+	ID   int
+	Name string
+}
