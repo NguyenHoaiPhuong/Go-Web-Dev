@@ -10,9 +10,9 @@ import (
 	"gopkg.in/jeevatkm/go-model.v1"
 )
 
-func TestCopyProductAtoF(t *testing.T) {
+func TestAddConversion(t *testing.T) {
 	fmt.Println("--------------------------------------")
-	fmt.Println("TestConversionStringtoInt")
+	fmt.Println("TestAddConversion: String to Int")
 
 	model.AddConversion((*string)(nil), (*int)(nil), func(in reflect.Value) (reflect.Value, error) {
 		intVal, err := strconv.Atoi(in.String())
@@ -34,4 +34,6 @@ func TestCopyProductAtoF(t *testing.T) {
 	}
 	fmt.Printf("Source: %v\n", *A)
 	fmt.Printf("Destination: %v\n", *F)
+
+	model.RemoveConversion((*string)(nil), (*int)(nil))
 }
