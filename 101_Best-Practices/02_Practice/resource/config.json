@@ -1,0 +1,6 @@
+{
+    "mongodb_server_host": "localhost",
+    "mongodb_port": "27017",
+    "mongodb_name": "store",
+    "mongodb_collection": "books"
+}

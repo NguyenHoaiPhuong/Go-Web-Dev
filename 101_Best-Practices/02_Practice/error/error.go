@@ -1,6 +1,24 @@
 package error
 
 const (
+	// ErrorAppInit initializing app faield
+	ErrorAppInit string = "Error App Init"
+	// ErrorAppGetAllBooks func allBooks failed
+	ErrorAppGetAllBooks string = "Error Get All Books"
+	// ErrorAppGetBookByIsbn func bookByISBN failed
+	ErrorAppGetBookByIsbn string = "Error Get Book By Isbn"
+
+	// ErrorDBSessionInit init DB Session failed
+	ErrorDBSessionInit string = "Error Init Database Session"
+	// ErrorDBSessionNil DB Session is nil
+	ErrorDBSessionNil string = "Error Nil Database Session"
+	// ErrorDBIndex DB Indexing failed
+	ErrorDBIndex string = "Error Database Indexing"
+	// ErrorDBGetAllDocuments func GetAllDocuments failed
+	ErrorDBGetAllDocuments string = "Error Database Get All Documents"
+	// ErrorDBGetDocumentByKey func GetDocumentByKey failed
+	ErrorDBGetDocumentByKey string = "Error Database Get Document By Key"
+
 	// ErrorSetConfig setting config failed
 	ErrorSetConfig string = "Error Set Config"
 

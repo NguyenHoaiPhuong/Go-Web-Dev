@@ -1,7 +1,7 @@
 package jsonfunc
 
 import (
-	"GO-WEB-DEV/101_Best-Practices/02_Practice/error"
+	"Go-Web-Dev/101_Best-Practices/02_Practice/error"
 	"encoding/json"
 	"io"
 	"os"
