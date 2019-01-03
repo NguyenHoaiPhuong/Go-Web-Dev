@@ -91,3 +91,55 @@ func (db *MongoDB) GetDocumentByKey(databaseName string, collectionName string, 
 	}
 	return book, nil
 }
+
+// AddDocument adds new document
+func (db *MongoDB) AddDocument(databaseName string, collectionName string, book *model.Book) error.Error {
+	var err error.Imp
+
+	session := db.Session.Copy()
+	defer session.Close()
+
+	c := session.DB(databaseName).C(collectionName)
+	osErr := c.Insert(*book)
+	if osErr != nil {
+		err.SetErrorMessage(osErr.Error())
+		err.InsertErrorMessage(error.ErrorDBDuplicatedKey)
+		return err
+	}
+	return nil
+}
+
+// UpdateDocument update specific document
+func (db *MongoDB) UpdateDocument(databaseName string, collectionName string, book *model.Book) error.Error {
+	var err error.Imp
+
+	session := db.Session.Copy()
+	defer session.Close()
+
+	c := session.DB(databaseName).C(collectionName)
+	osErr := c.Update(bson.M{"isbn": book.ISBN}, book)
+	if osErr != nil {
+		err.SetErrorMessage(osErr.Error())
+		err.InsertErrorMessage(error.ErrorDBUpdateDocument)
+		return err
+	}
+	return nil
+}
+
+// DeleteDocumentByKey deletes document by given key and respective value
+func (db *MongoDB) DeleteDocumentByKey(databaseName string, collectionName string, key string, value string) error.Error {
+	var err error.Imp
+
+	session := db.Session.Copy()
+	defer session.Close()
+
+	c := session.DB(databaseName).C(collectionName)
+
+	osErr := c.Remove(bson.M{key: value})
+	if osErr != nil {
+		err.SetErrorMessage(osErr.Error())
+		err.InsertErrorMessage(error.ErrorDBGetDocumentByKey)
+		return err
+	}
+	return nil
+}

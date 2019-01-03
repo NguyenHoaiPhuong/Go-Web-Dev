@@ -59,6 +59,6 @@ func (a *App) initAPI() {
 	a.API.RegisterHandleFunction("GET", "/books", a.allBooks)
 	a.API.RegisterHandleFunction("GET", "/book/{isbn}", a.bookByISBN)
 	a.API.RegisterHandleFunction("POST", "/books", a.addBook)
-	a.API.RegisterHandleFunction("PUT", "/books", a.updateBook)
-	a.API.RegisterHandleFunction("DELETE", "/books", a.deleteBook)
+	a.API.RegisterHandleFunction("PUT", "/book/{isbn}", a.updateBook)
+	a.API.RegisterHandleFunction("DELETE", "/book/{isbn}", a.deleteBook)
 }
