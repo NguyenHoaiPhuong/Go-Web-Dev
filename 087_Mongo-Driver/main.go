@@ -70,12 +70,3 @@ func InsertManyDocuments(collection *mongo.Collection, documents []interface{}) 
 	utils.CheckError(err)
 	fmt.Println(aurora.Green("Inserted many documents: "), aurora.Green(insertManyResult.InsertedIDs))
 }
-
-func FindOneDocument(collection *mongo.Collection, filter bson.D) (document interface{}) {
-	err := collection.FindOne(context.TODO(), filter).Decode(&document)
-	utils.CheckError(err)
-
-	fmt.Printf("Found a single document: %+v\n", document)
-
-	return
-}
