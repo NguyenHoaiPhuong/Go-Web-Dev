@@ -6,7 +6,8 @@ func main() {
 	ch := make(chan int, 2)
 	ch <- 1
 	ch <- 2
+	// ch <- 3 //Deadlock: buffer is overfloat
 	fmt.Println(<-ch)
 	fmt.Println(<-ch)
-	//fmt.Println(<-ch)	//Deadblock: buffer is empty
+	//fmt.Println(<-ch)	//Deadlock: buffer is empty
 }

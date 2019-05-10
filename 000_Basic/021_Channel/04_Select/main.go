@@ -32,9 +32,33 @@ func receive(c, quit chan int) {
 	quit <- 0
 }
 
-func main() {
+// TestSendAndReceive : test send and receive functions
+func TestSendAndReceive() {
 	c := make(chan int)
 	quit := make(chan int)
 	go receive(c, quit)
 	send(c, quit)
+}
+
+// TickToc : tick tock
+func TickToc() {
+	tick := time.Tick(100 * time.Millisecond)
+	boom := time.After(500 * time.Millisecond)
+	for {
+		select {
+		case <-tick:
+			fmt.Println("tick.")
+		case <-boom:
+			fmt.Println("toc!!")
+			return
+		default:
+			fmt.Println("    .")
+			time.Sleep(50 * time.Millisecond)
+		}
+	}
+}
+
+func main() {
+	// TestSendAndReceive()
+	TickToc()
 }
