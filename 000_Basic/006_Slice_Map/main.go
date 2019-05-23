@@ -5,6 +5,15 @@ import (
 	"time"
 )
 
+// RemoveItemFromSlice : remove 1 specific item from slice
+func RemoveItemFromSlice() {
+	slice := []int{0, 1, 2, 3, 4, 5, 6}
+	slice = append(slice[:2], slice[3:]...)
+	for _, val := range slice {
+		fmt.Println(val)
+	}
+}
+
 func main() {
 	university := new(University)
 	university.Init()
