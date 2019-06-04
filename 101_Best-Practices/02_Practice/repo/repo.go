@@ -4,8 +4,8 @@ import (
 	"Go-Web-Dev/101_Best-Practices/02_Practice/error"
 	"Go-Web-Dev/101_Best-Practices/02_Practice/model"
 
-	mgo "gopkg.in/mgo.v2"
-	"gopkg.in/mgo.v2/bson"
+	"github.com/globalsign/mgo"
+	"github.com/globalsign/mgo/bson"
 )
 
 // MongoDB struct includes DB session
@@ -55,20 +55,45 @@ func (db *MongoDB) EnsureIndex(databaseName string, collectionName string, index
 }
 
 // GetAllDocuments gets all documents in the collection
-func (db *MongoDB) GetAllDocuments(databaseName string, collectionName string) ([]model.Book, error.Error) {
+// func (db *MongoDB) GetAllDocuments(databaseName string, collectionName string) ([]model.Book, error.Error) {
+// 	var err error.Imp
+// 	var books []model.Book
+
+// 	session := db.Session.Copy()
+// 	defer session.Close()
+
+// 	c := session.DB(databaseName).C(collectionName)
+
+// 	osErr := c.Find(bson.M{}).All(&books)
+// 	if osErr != nil {
+// 		err.SetErrorMessage(osErr.Error())
+// 		err.InsertErrorMessage(error.ErrorAppGetAllBooks)
+// 		return books, err
+// 	}
+// 	return books, nil
+// }
+func (db *MongoDB) GetAllDocuments(databaseName string, collectionName string) ([]*model.Book, error.Error) {
 	var err error.Imp
-	var books []model.Book
+	var docs []interface{}
 
 	session := db.Session.Copy()
 	defer session.Close()
 
 	c := session.DB(databaseName).C(collectionName)
 
-	osErr := c.Find(bson.M{}).All(&books)
+	osErr := c.Find(bson.M{}).All(&docs)
 	if osErr != nil {
 		err.SetErrorMessage(osErr.Error())
 		err.InsertErrorMessage(error.ErrorAppGetAllBooks)
-		return books, err
+		return nil, err
+	}
+
+	books := make([]*model.Book, len(docs))
+	for i, doc := range docs {
+		book := new(model.Book)
+		bsonBytes, _ := bson.Marshal(doc)
+		bson.Unmarshal(bsonBytes, book)
+		books[i] = book
 	}
 	return books, nil
 }

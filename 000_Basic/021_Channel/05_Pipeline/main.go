@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"sync"
+	"time"
 )
 
 func gen(nums ...int) <-chan int {
@@ -80,9 +81,18 @@ func fifo() {
 func main() {
 	// pipelineTest()
 	// fifo()
-	slice := []int{0, 1, 2, 3, 4, 5, 6}
-	slice = append(slice[:2], slice[3:]...)
-	for _, val := range slice {
+
+	sl := []int{1, 2, 3, 4, 5, 6}
+	go func(integerSlcie *[]int) {
+		*integerSlcie = append(*integerSlcie, 7)
+
+		for _, val := range *integerSlcie {
+			fmt.Println(val)
+		}
+	}(&sl)
+	time.Sleep(time.Second * 10)
+
+	for _, val := range sl {
 		fmt.Println(val)
 	}
 }
