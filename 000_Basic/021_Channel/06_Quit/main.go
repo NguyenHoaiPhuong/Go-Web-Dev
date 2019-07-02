@@ -9,27 +9,27 @@ func f1(quit chan int) {
 	fmt.Println("Start f1")
 
 	time.Sleep(time.Second * 1)
-	quit <- 1
-
 	fmt.Println("Stop f1")
+
+	quit <- 1
 }
 
 func f2(quit chan int) {
 	fmt.Println("Start f2")
 
 	time.Sleep(time.Second * 1)
-	quit <- 2
-
 	fmt.Println("Stop f2")
+
+	quit <- 2
 }
 
 func f3(quit chan int) {
 	fmt.Println("Start f3")
 
 	time.Sleep(time.Second * 1)
-	quit <- 3
-
 	fmt.Println("Stop f3")
+
+	quit <- 3
 }
 
 func main() {
@@ -44,6 +44,7 @@ func main() {
 		case <-quit:
 			i++
 			if i == 3 {
+				close(quit)
 				return
 			}
 		}
