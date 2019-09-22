@@ -16,4 +16,5 @@ type Actions interface {
 	DeleteAllBucketItems(string) error
 	UploadFileToBucket(string, string) error
 	DownloadFileFromBucket(string, string) error
+	CopyItemFromBucketToBucket(string, string, string) error
 }

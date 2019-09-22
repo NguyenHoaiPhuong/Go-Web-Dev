@@ -87,6 +87,10 @@ func (a *App) AWSS3DeleteAllBucketItems(bucketName string) {
 	a.s3Service.DeleteAllBucketItems(bucketName)
 }
 
+func (a *App) AWSS3CopyItemFromBucketToBucket(from, to, file string) {
+	a.s3Service.CopyItemFromBucketToBucket(from, to, file)
+}
+
 // AWSS3UploadFileToBucket uploads a file to a bucket
 func (a *App) AWSS3UploadFileToBucket(fileName string, bucketName string) {
 	err := a.s3Service.UploadFileToBucket(fileName, bucketName)

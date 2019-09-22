@@ -16,6 +16,7 @@ import (
 type Service struct {
 	Actions
 
+	Session    *session.Session
 	Client     *s3.S3
 	Uploader   *s3manager.Uploader
 	Downloader *s3manager.Downloader
@@ -26,10 +27,16 @@ func (svc *Service) Init(s3config *config.S3Config) {
 	config := &aws.Config{
 		Region: aws.String(s3config.Region),
 	}
-	sess := session.Must(session.NewSession(config))
-	svc.Client = s3.New(sess)
-	svc.Uploader = s3manager.NewUploader(sess)
-	svc.Downloader = s3manager.NewDownloader(sess)
+	svc.Session = session.Must(session.NewSession(config))
+	/*val, err := svc.Session.Config.Credentials.Get()
+	if err != nil {
+		panic(err)
+	}
+	// print credentials
+	fmt.Println(val)*/
+	svc.Client = s3.New(svc.Session)
+	svc.Uploader = s3manager.NewUploader(svc.Session)
+	svc.Downloader = s3manager.NewDownloader(svc.Session)
 }
 
 // CreateNewBucket creates new bucket
@@ -139,6 +146,27 @@ func (svc *Service) DeleteBucketItem(fileName string, bucketName string) error {
 		return err
 	}
 	fmt.Printf("Deleted object %s from bucket %s\n", fileName, bucketName)
+	return nil
+}
+
+func (svc *Service) CopyItemFromBucketToBucket(from string, to string, file string) error {
+	source := from + "/" + file
+
+	// Copy the item
+	_, err := svc.Client.CopyObject(&s3.CopyObjectInput{Bucket: aws.String(to), CopySource: aws.String(source), Key: aws.String(file)})
+	if err != nil {
+		fmt.Printf("Unable to copy item from bucket %s to bucket %s, %v\n", from, to, err)
+		return err
+	}
+
+	// Wait to see if the item got copied
+	err = svc.Client.WaitUntilObjectExists(&s3.HeadObjectInput{Bucket: aws.String(to), Key: aws.String(file)})
+	if err != nil {
+		fmt.Printf("Error occurred while waiting for item %s to be copied to bucket %q, %v\n", file, to, err)
+		return err
+	}
+
+	fmt.Printf("Item %s successfully copied from bucket %s to bucket %s\n", file, from, to)
 	return nil
 }
 
