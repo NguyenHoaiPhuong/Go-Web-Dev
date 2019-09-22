@@ -1,11 +1,12 @@
 package app
 
 import (
-	"GO-WEB-DEV/099_AWS-S3/awss3"
-	"GO-WEB-DEV/099_AWS-S3/config"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/NguyenHoaiPhuong/GO-WEB-DEV/099_AWS-S3/config"
+	awss3 "github.com/NguyenHoaiPhuong/GO-WEB-DEV/099_AWS-S3/services/aws/s3"
 
 	"github.com/gorilla/mux"
 )

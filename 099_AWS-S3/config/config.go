@@ -1,7 +1,7 @@
 package config
 
 import (
-	"GO-WEB-DEV/080_Json/jsonfunc"
+	"github.com/NguyenHoaiPhuong/GO-WEB-DEV/080_Json/jsonfunc"
 )
 
 var cf *Config

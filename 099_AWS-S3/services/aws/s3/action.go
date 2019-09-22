@@ -1,7 +1,7 @@
 package awss3
 
 import (
-	"GO-WEB-DEV/099_AWS-S3/config"
+	"github.com/NguyenHoaiPhuong/GO-WEB-DEV/099_AWS-S3/config"
 )
 
 // Actions includes all functions related to S3

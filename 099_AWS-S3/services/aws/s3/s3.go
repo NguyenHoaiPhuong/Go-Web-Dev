@@ -1,9 +1,10 @@
 package awss3
 
 import (
-	"GO-WEB-DEV/099_AWS-S3/config"
 	"fmt"
 	"os"
+
+	"github.com/NguyenHoaiPhuong/GO-WEB-DEV/099_AWS-S3/config"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
