@@ -6,7 +6,6 @@ import (
 	"time"
 
 	_ "github.com/mattn/go-sqlite3"
-	"github.com/sirupsen/logrus"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -14,14 +13,14 @@ type dbHook struct {
 	*sql.DB
 }
 
-func (dbHook) Levels() []logrus.Level {
+func (dbHook) Levels() []log.Level {
 	return []log.Level{
-		logrus.PanicLevel,
-		logrus.FatalLevel,
-		logrus.ErrorLevel,
-		logrus.WarnLevel,
-		logrus.InfoLevel,
-		logrus.DebugLevel,
+		log.PanicLevel,
+		log.FatalLevel,
+		log.ErrorLevel,
+		log.WarnLevel,
+		log.InfoLevel,
+		log.DebugLevel,
 	}
 }
 
@@ -60,7 +59,7 @@ func main() {
 	}
 
 	for i := 0; i < 10; i++ {
-		logger.WithFields(logrus.Fields{
+		logger.WithFields(log.Fields{
 			"animal": "walrus",
 			"number": 1,
 			"size":   10,
