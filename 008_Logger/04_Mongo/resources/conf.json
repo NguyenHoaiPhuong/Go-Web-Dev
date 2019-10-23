@@ -1,0 +1,5 @@
+{
+  "loggingLevel": 3,
+  "dbName": "test",
+  "mongodbServerHost": "localhost"
+}
