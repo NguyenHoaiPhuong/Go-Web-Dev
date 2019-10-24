@@ -12,8 +12,9 @@ import (
 func main() {
 	cfg := config.SetupAndGetConfig("./resources/conf.json")
 
-	// logger.SetOutput(os.Stdout)
-	// logger.SetLevel(log.AllLevels[*cfg.LoggingLevel])
+	// stdLogger := log.New()
+	// stdLogger.SetOutput(os.Stdout)
+	// stdLogger.SetLevel(log.AllLevels[*cfg.LoggingLevel])
 
 	writerHook := &WriterHook{ // Send logs with level higher than warning to stderr
 		Writer: os.Stdout,
@@ -22,7 +23,7 @@ func main() {
 			log.FatalLevel,
 			log.ErrorLevel,
 			log.WarnLevel,
-			log.InfoLevel,
+			// log.InfoLevel,
 			// log.DebugLevel,
 		},
 	}
@@ -42,4 +43,6 @@ func main() {
 		}).Info("A walrus appears")
 		time.Sleep(time.Second)
 	}
+
+	logger.WithField("function", "main").Trace("Stop ...")
 }

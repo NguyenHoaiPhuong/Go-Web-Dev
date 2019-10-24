@@ -51,7 +51,7 @@ func (hook *mongodbHook) Init(cfg *config.MongoDBConfig) {
 		log.WarnLevel,
 		log.InfoLevel,
 		log.DebugLevel,
-		// log.TraceLevel,
+		log.TraceLevel,
 	}
 }
 
@@ -102,4 +102,7 @@ var logger *log.Logger
 func init() {
 	logger = log.New()
 	logger.SetOutput(ioutil.Discard)
+	logger.SetFormatter(&log.TextFormatter{
+		ForceColors: true,
+	})
 }
