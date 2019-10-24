@@ -23,8 +23,8 @@ func main() {
 			log.FatalLevel,
 			log.ErrorLevel,
 			log.WarnLevel,
-			// log.InfoLevel,
-			// log.DebugLevel,
+			log.InfoLevel,
+			log.DebugLevel,
 		},
 	}
 	logger.AddHook(writerHook)
@@ -44,5 +44,6 @@ func main() {
 		time.Sleep(time.Second)
 	}
 
-	logger.WithField("function", "main").Trace("Stop ...")
+	logger.WithField("function", "main").Debug("Debug stop ...")
+	logger.WithField("function", "main").Trace("Trace stop ...")
 }
