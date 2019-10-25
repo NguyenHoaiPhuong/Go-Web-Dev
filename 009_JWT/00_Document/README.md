@@ -77,6 +77,28 @@ Finally, combine 3 strings above, we will have a complete JWT token:
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsidGVzdGp3dHJlc291cmNlaWQiXSwidXNlcl9uYW1lIjoiYWRtaW4iLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiXSwiZXhwIjoxNTEzNzE.9nRhBWiRoryc8fV5xRpTmw9iyJ6EM7WTGTjvCM1e36Q
 ```
 
+# How the JWT signature works
+
+So if the header and payload of a JWT can be read and written to by anyone, what actually makes a JWT secure? The answer lies in how the last part (the signature) is generated.
+
+Let’s pretend that your application wants to issue a JWT to a user (for example, user1) that has successfully signed in.
+
+Making the header and payload are pretty straightforward: The header is more or less fixed, and the payload JSON object is formed by setting the user ID and the expiry time in unix milliseconds.
+
+The application issuing the token will also have a key, which is a secret value, and known only to the application itself. The base64 representations of the header and payload are then combined with the secret key and then passed through a hashing algorithm (in this case its HS256, as mentioned in the header)
+
+![How signature work](./jwt-how-signature-work.svg)
+
+# Verifying a JWT
+
+In order to verify an incoming JWT, a signature is once again generated using the header and payload from the incoming JWT, and the secret key. If the signature matches the one on the JWT, then the JWT is considered valid.
+
+Now let’s pretend that you’re a hacker trying to issue a fake token. You can easily generate the header and payload, but without knowing the key, there is no way to generate a valid signature. If you try to tamper with the existing payload of a valid JWT, the signatures will no longer match.
+
+![Verifying a JWT](./jwt-verification.svg)
+
+In this way, the JWT acts as a way to authorize users in a secure manner, without actually storing any information (besides the key) on the application server.
+
 # When to use JWT
 
 JWT is a great technology for API authentication and server-to-server authorization.
@@ -106,3 +128,5 @@ A very common use of a JWT token, and the one you should probably only use JWT f
 - https://topdev.vn/blog/huong-dan-authorization-voi-jwt/
 
 - https://levelup.gitconnected.com/using-jwt-in-your-react-redux-app-for-authorization-d31be51a50d2
+
+- https://www.sohamkamani.com/blog/golang/2019-01-01-jwt-authentication/
