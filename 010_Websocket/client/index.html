@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Go WebSocket Tutorial</title>
+    </head>
+    <body>
+        <h2>WebSocket Example</h2>
+        <input id="input" type="text" />
+        <button onclick="send()">Send</button>
+        <pre id="output"></pre>
+
+        <script>
+            var input = document.getElementById("input");
+            var output = document.getElementById("output");
+            var socket = new WebSocket("ws://localhost:9000/ws");
+
+            socket.onopen = function(e) {
+                output.innerHTML += "Status: Connected\n";
+            };
+            
+            socket.onmessage = function(e) {
+                output.innerHTML += "Server: " + e.data + "\n";
+            };
+
+            socket.onerror = function(e) {
+                output.innerHTML += "Websocket error: " + e.value + "\n";
+                console.log(e)
+            }
+
+            socket.onclose = function(event) {
+                if (event.wasClean) {
+                    alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+                } else {
+                    // e.g. server process killed or network down
+                    // event.code is usually 1006 in this case
+                    alert('[close] Connection died');
+                }
+            };
+
+            function send() {
+                socket.send(input.value);
+                input.value = "";
+            }
+        </script>
+    </body>
+</html>

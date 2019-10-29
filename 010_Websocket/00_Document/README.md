@@ -140,3 +140,8 @@ Clients can just listen to the server and it will send clients a message when it
 <!-- * https://viblo.asia/p/hieu-hon-ve-websocket-znVGL2r0RZOe -->
 <!-- * https://yalantis.com/blog/how-to-build-websockets-in-go/ -->
 * https://tutorialedge.net/golang/go-websocket-tutorial/
+
+```
+sudo ulimit -n 6049
+sudo sysctl -w kern.ipc.somaxconn=1024
+```
