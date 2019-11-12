@@ -56,10 +56,14 @@ func (c *Configurations) Print() {
 	fmt.Println("Bucket is\t\t", viper.GetString("s3config.bucket"))
 }
 
-// NewConfigurations init new config and return it
-func NewConfigurations() *Configurations {
-	c := new(Configurations)
-	c.init()
+// GlobalConfig init new config and return it
+func GlobalConfig() *Configurations {
+	if globalConfig == nil {
+		globalConfig = new(Configurations)
+	}
+	globalConfig.init()
 
-	return c
+	return globalConfig
 }
+
+var globalConfig *Configurations
