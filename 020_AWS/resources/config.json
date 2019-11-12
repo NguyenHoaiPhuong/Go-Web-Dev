@@ -1,0 +1,7 @@
+{
+    "s3config":
+    {
+        "region": "ap-southeast-1",
+        "bucket": "cel-tmp"
+    }
+}
