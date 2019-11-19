@@ -46,12 +46,12 @@ func (c *Configurations) init() {
 // Print : prints all configurations on the terminal
 func (c *Configurations) Print() {
 	// Reading variables using the model
-	fmt.Println("Reading variables using the model..")
+	fmt.Println("Reading variables using the model.")
 	fmt.Println("Region is\t", c.S3config.Region)
 	fmt.Println("Bucket is\t\t", c.S3config.Bucket)
 
 	// Reading variables without using the model
-	fmt.Println("\nReading variables without using the model..")
+	fmt.Println("\nReading variables without using the model.")
 	fmt.Println("Region is\t", viper.GetString("s3config.region"))
 	fmt.Println("Bucket is\t\t", viper.GetString("s3config.bucket"))
 }

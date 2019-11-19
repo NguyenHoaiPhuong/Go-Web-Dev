@@ -33,14 +33,14 @@ func main() {
 	}
 
 	// Reading variables using the model
-	fmt.Println("Reading variables using the model..")
+	fmt.Println("Reading variables using the model.")
 	fmt.Println("Database is\t", configuration.Database.DBName)
 	fmt.Println("Port is\t\t", configuration.Server.Port)
 	fmt.Println("EXAMPLE_PATH is\t", configuration.EXAMPLE_PATH)
 	fmt.Println("EXAMPLE_VAR is\t", configuration.EXAMPLE_VAR)
 
 	// Reading variables without using the model
-	fmt.Println("\nReading variables without using the model..")
+	fmt.Println("\nReading variables without using the model.")
 	fmt.Println("Database is\t", viper.GetString("database.dbname"))
 	fmt.Println("Port is\t\t", viper.GetInt("server.port"))
 	fmt.Println("EXAMPLE_PATH is\t", viper.GetString("EXAMPLE_PATH"))
