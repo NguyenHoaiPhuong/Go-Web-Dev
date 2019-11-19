@@ -2,7 +2,9 @@ package awss3
 
 import (
 	"fmt"
+	"log"
 	"os"
+	"path/filepath"
 
 	"github.com/NguyenHoaiPhuong/Go-Web-Dev/020_AWS/config"
 	"github.com/aws/aws-sdk-go/aws"
@@ -17,11 +19,12 @@ type IService interface {
 
 	CreateNewBucket(string) error
 	DeleteBucket(string) error
-	ListBuckets() error
-	ListBucketItems(string) error
+	ListBuckets() ([]string, error)
+	ListBucketItems(string) ([]string, error)
 	DeleteBucketItem(string, string) error
 	DeleteAllBucketItems(string) error
 	UploadFileToBucket(string, string) error
+	UploadDirectoryToBucket(string, string, string) error
 	DownloadFileFromBucket(string, string) error
 	CopyItemFromBucketToBucket(string, string, string) error
 }
@@ -42,12 +45,6 @@ func (svc *Service) init(s3config config.S3Configurations) {
 		Region: aws.String(s3config.Region),
 	}
 	svc.Session = session.Must(session.NewSession(config))
-	/*val, err := svc.Session.Config.Credentials.Get()
-	if err != nil {
-		panic(err)
-	}
-	// print credentials
-	fmt.Println(val)*/
 	svc.Client = s3.New(svc.Session)
 	svc.Uploader = s3manager.NewUploader(svc.Session)
 	svc.Downloader = s3manager.NewDownloader(svc.Session)
@@ -103,42 +100,44 @@ func (svc *Service) DeleteBucket(bucketName string) error {
 }
 
 // ListBuckets lists all buckets
-func (svc *Service) ListBuckets() error {
+func (svc *Service) ListBuckets() ([]string, error) {
 	result, err := svc.Client.ListBuckets(nil)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to list buckets, %v\n", err)
-		return err
+		return nil, err
 	}
 
+	buckets := make([]string, len(result.Buckets))
 	fmt.Println("Buckets:")
-
-	for _, b := range result.Buckets {
+	for idx, b := range result.Buckets {
 		fmt.Printf("* %s created on %s\n",
 			aws.StringValue(b.Name), aws.TimeValue(b.CreationDate))
+		buckets[idx] = aws.StringValue(b.Name)
 	}
-	return nil
+	return buckets, nil
 }
 
 // ListBucketItems lists all the objects existing in the bucket with given name
-func (svc *Service) ListBucketItems(bucketName string) error {
+func (svc *Service) ListBucketItems(bucketName string) ([]string, error) {
 	result, err := svc.Client.ListObjects(&s3.ListObjectsInput{
 		Bucket: aws.String(bucketName),
 	})
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to list objects in the bucket with given name %s, %v\n", bucketName, err)
-		return err
+		return nil, err
 	}
 
+	objects := make([]string, len(result.Contents))
 	fmt.Printf("Object in the Bucket %s:\n", bucketName)
-
-	for _, item := range result.Contents {
+	for idx, item := range result.Contents {
 		fmt.Println("Name:         ", *item.Key)
 		fmt.Println("Last modified:", *item.LastModified)
 		fmt.Println("Size:         ", *item.Size)
 		fmt.Println("Storage class:", *item.StorageClass)
 		fmt.Println("")
+		objects[idx] = *item.Key
 	}
-	return nil
+	return objects, nil
 }
 
 // DeleteBucketItem deletes one item in a bucket
@@ -218,6 +217,53 @@ func (svc *Service) UploadFileToBucket(fileName string, bucketName string) error
 		return err
 	}
 	fmt.Printf("Successfully uploaded %s to %s\n", fileName, bucketName)
+	return nil
+}
+
+// UploadDirectoryToBucket uploads all files in the specific local folder to bucket.
+// Prefix is added before the file name.
+// For example: the Prefix is release/1.6.0, bucket name is ITV and current local directory is structured as below:
+// ROOT
+// 		a.txt
+// 		CHILD
+// 			b.txt
+// Then, in AWS S3, bucket ITV, there will be 2 directories lead to 2 files:
+// 		release/1.6.0/a.txt
+// 		release/1.6.0/CHILD/b.txt
+func (svc *Service) UploadDirectoryToBucket(localPath string, bucketName string, prefix string) error {
+	walker := make(fileWalk)
+	go func() {
+		// Gather the files to upload by walking the path recursively
+		if err := filepath.Walk(localPath, walker.Walk); err != nil {
+			log.Fatalln("Walk failed:", err)
+		}
+		close(walker)
+	}()
+
+	for path := range walker {
+		rel, err := filepath.Rel(localPath, path)
+		if err != nil {
+			log.Println("Unable to get relative path:", path, err)
+			return err
+		}
+		file, err := os.Open(path)
+		if err != nil {
+			log.Println("Failed opening file", path, err)
+			return err
+		}
+		defer file.Close()
+		result, err := svc.Uploader.Upload(&s3manager.UploadInput{
+			Bucket: aws.String(bucketName),
+			Key:    aws.String(filepath.Join(prefix, rel)),
+			Body:   file,
+		})
+		if err != nil {
+			log.Println("Failed to upload", path, err)
+			return err
+		}
+		log.Println("Uploaded", path, result.Location)
+	}
+
 	return nil
 }
 
