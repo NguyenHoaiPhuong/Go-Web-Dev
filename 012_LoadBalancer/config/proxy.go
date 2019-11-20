@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"io"
 	"io/ioutil"
+	"math"
 	"net/http"
 	"net/url"
 	"strconv"
@@ -50,13 +51,13 @@ func (proxy Proxy) ChooseServer(ignoreList []string) *Server {
 func (proxy Proxy) ReverseProxy(w http.ResponseWriter, r *http.Request, server Server) (int, error) {
 	u, err := url.Parse(server.URL() + r.RequestURI)
 	if err != nil {
-		log.Errorln(err.Error())
+		log.Errorln(err)
 	}
 
 	r.URL = u
 	r.Header.Set("X-Forwarded-Host", r.Host)
-	r.Header.Set("Origin", proxy.origin())
-	r.Host = server.Url()
+	r.Header.Set("Origin", proxy.URL())
+	r.Host = server.URL()
 	r.RequestURI = ""
 
 	client := &http.Client{
@@ -71,14 +72,14 @@ func (proxy Proxy) ReverseProxy(w http.ResponseWriter, r *http.Request, server S
 	if err != nil {
 		// For now, this is a fatal error
 		// When we can fail to another webserver, this should only be a warning.
-		LogErr("connection refused")
+		log.Errorln("connection refused")
 		return 0, err
 	}
-	LogInfo("Recieved response: " + strconv.Itoa(resp.StatusCode))
+	log.Infoln("Recieved response: " + strconv.Itoa(resp.StatusCode))
 
 	bodyBytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		LogErr("Proxy: Failed to read response body")
+		log.Errorln("Proxy: Failed to read response body")
 		http.NotFound(w, r)
 		return 0, err
 	}
@@ -92,4 +93,34 @@ func (proxy Proxy) ReverseProxy(w http.ResponseWriter, r *http.Request, server S
 
 	io.Copy(w, buffer)
 	return resp.StatusCode, nil
+}
+
+func (proxy Proxy) attemptServers(w http.ResponseWriter, r *http.Request, ignoreList []string) {
+	if float64(len(ignoreList)) >= math.Min(float64(3), float64(len(proxy.Servers))) {
+		log.Errorln("Failed to find server for request")
+		http.NotFound(w, r)
+		return
+	}
+
+	server := proxy.ChooseServer(ignoreList)
+	log.Infoln("Got request: " + r.RequestURI)
+	log.Infoln("Sending to server: " + server.Name)
+
+	server.Connections++
+	_, err := proxy.ReverseProxy(w, r, *server)
+	server.Connections--
+
+	if err != nil && strings.Contains(err.Error(), "connection refused") {
+		log.Warnln("Server did not respond: " + server.Name)
+
+		proxy.attemptServers(w, r, append(ignoreList, server.Name))
+		return
+	}
+
+	log.Infoln("Responded to request successfuly")
+}
+
+// Handler func
+func (proxy Proxy) Handler(w http.ResponseWriter, r *http.Request) {
+	proxy.attemptServers(w, r, []string{})
 }
