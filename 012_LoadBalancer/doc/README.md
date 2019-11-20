@@ -78,3 +78,5 @@ There is a serious issue we need to consider. Our Backend structure has a variab
 ## References:
 
 - https://levelup.gitconnected.com/create-a-simple-load-balancer-with-go-4b474460bab2
+
+- https://github.com/d12/Load-Balancer-Golang/blob/master/proxy.go
