@@ -2,6 +2,7 @@ package config
 
 import (
 	"bytes"
+	"errors"
 	"io"
 	"io/ioutil"
 	"math"
@@ -72,10 +73,10 @@ func (proxy Proxy) ReverseProxy(w http.ResponseWriter, r *http.Request, server S
 	if err != nil {
 		// For now, this is a fatal error
 		// When we can fail to another webserver, this should only be a warning.
-		log.Errorln("connection refused")
-		return 0, err
+		log.Errorln()
+		return 0, errors.New("connection refused:" + err.Error())
 	}
-	log.Infoln("Recieved response: " + strconv.Itoa(resp.StatusCode))
+	log.Infoln("Received response: " + strconv.Itoa(resp.StatusCode))
 
 	bodyBytes, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
