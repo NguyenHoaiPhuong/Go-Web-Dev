@@ -1,4 +1,12 @@
-package main
+package task
+
+const (
+	// ADD : add func
+	ADD string = "add"
+
+	// MULTIPLY : Multiply func
+	MULTIPLY string = "Multiply"
+)
 
 // Add func
 func Add(args ...int64) (int64, error) {

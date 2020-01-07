@@ -58,6 +58,37 @@ A Machinery library must be instantiated before use. The way this is done is by 
         server.RegisterTask("multiply", Multiply)
         ```
 
+        Simply put, when a worker receives a message like this:
+
+        ```
+        {
+            "UUID": "48760a1a-8576-4536-973b-da09048c2ac5",
+            "Name": "add",
+            "RoutingKey": "",
+            "ETA": null,
+            "GroupUUID": "",
+            "GroupTaskCount": 0,
+            "Args": [
+                {
+                "Type": "int64",
+                "Value": 1,
+                },
+                {
+                "Type": "int64",
+                "Value": 1,
+                }
+            ],
+            "Immutable": false,
+            "RetryCount": 0,
+            "RetryTimeout": 0,
+            "OnSuccess": null,
+            "OnError": null,
+            "ChordCallback": null
+        }
+        ```
+
+        It will call Add(1, 1). Each task should return an error as well so we can handle failures.
+
     - Signatures
     - Supported types
     - Sending tasks

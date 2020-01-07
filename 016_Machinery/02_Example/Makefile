@@ -1,3 +1,5 @@
-run-worker
+run-master:
+	go run *.go --mode=master
 
-run-server
+run-worker:
+	go run *.go --mode=worker
