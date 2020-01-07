@@ -99,9 +99,19 @@ A Machinery library must be instantiated before use. The way this is done is by 
 
 5. Workflows
 
+Running a single asynchronous task is fine but often you will want to design a workflow of tasks to be executed in an orchestrated way. There are couple of useful functions to help you design workflows.
+
 - Groups
+
+    `Group` is a set of tasks which will be executed in parallel, independent of each other.
+
 - Chords
+
+    `Chord` allows you to define a callback to be executed after all tasks in a group finished processing.
+
 - Chains
+
+    `Chain` is simply a set of tasks which will be executed one by one, each successful task triggering the next task in the chain.
 
 ## References
 
