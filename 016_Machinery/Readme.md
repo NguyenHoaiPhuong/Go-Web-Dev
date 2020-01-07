@@ -113,6 +113,12 @@ Running a single asynchronous task is fine but often you will want to design a w
 
     `Chain` is simply a set of tasks which will be executed one by one, each successful task triggering the next task in the chain.
 
+## Remarks
+- 01_Example and 02_Example : send task
+- 03_Example : send a group of task
+- 04_Example : send a chord
+- 05_Example : send a chain
+
 ## References
 
 1. https://github.com/RichardKnop
