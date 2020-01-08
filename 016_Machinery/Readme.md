@@ -119,6 +119,37 @@ Running a single asynchronous task is fine but often you will want to design a w
 - 04_Example : send a chord
 - 05_Example : send a chain
 
+Below is the content of request need to be sent to 
+
+```
+POST /tasks HTTP/1.1
+Host: localhost:9000
+Content-Type: application/javascript
+User-Agent: PostmanRuntime/7.20.1
+Accept: */*
+Cache-Control: no-cache
+Postman-Token: 06933167-de70-4dac-9e24-ddba448c751a,8057dec4-4fa5-4bd6-9fdc-f74cccbd609e
+Host: localhost:9000
+Accept-Encoding: gzip, deflate
+Content-Length: 127
+Connection: keep-alive
+cache-control: no-cache
+
+[
+	{
+		"taskName": "add",
+		"args": [1, 2, 3]
+	},
+	{
+		"taskName": "add",
+		"args": [1, 4]
+	},
+	{
+		"taskName": "multiply"
+	}
+]
+```
+
 ## References
 
 1. https://github.com/RichardKnop
