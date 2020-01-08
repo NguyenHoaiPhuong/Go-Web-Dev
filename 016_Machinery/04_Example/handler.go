@@ -47,13 +47,14 @@ func CreateTask(c *gin.Context) {
 	checkError(err)
 
 	// Chord
-	if len(mulSignatures) > 1 {
+	if len(mulSignatures) != 1 {
 		log.Fatalln("Please input only 1 multiplying task")
 	}
 	chord, err := tasks.NewChord(group, mulSignatures[0])
 	checkError(err)
 
-	//The second parameter of SendChord specifies the number of concurrent sending tasks. 0 means unlimited.
+	//The second parameter of SendChord specifies the number of concurrent sending tasks.
+	// 0 means unlimited.
 	chordAsyncResult, err := srv.SendChord(chord, 0)
 	checkError(err)
 
