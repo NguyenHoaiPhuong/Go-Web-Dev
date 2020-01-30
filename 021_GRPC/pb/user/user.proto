@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package user;
+
+service User {
+    rpc GetUsers(GetRequest) returns (GetResponse);
+    // Sử dụng giao thức rpc để gọi trực tiếp đến method của instance
+
+    rpc FindUser(FindRequest) returns (FindResponse);
+
+    rpc CreateUser(CreateRequest) returns (CreateResponse);
+}
+
+message Model {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string phone = 4;
+
+    message Address {
+        string  street = 1;
+        string  city = 2;
+        string state = 3;
+        string country = 4;
+    }
+
+    repeated Address address = 5;
+}
+
+message GetRequest {
+    string keyword = 1;
+}
+
+message FindRequest {
+    string id = 1;
+}
+
+message CreateRequest {
+    Model user = 1;
+}
+
+message GetResponse {
+    string status = 1;
+    repeated Model users = 2;
+}
+
+message FindResponse {
+    string status = 1;
+    Model user = 2;
+}
+
+message CreateResponse {
+    string status = 1;
+    string message = 2;
+}
