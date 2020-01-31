@@ -4,7 +4,7 @@ import (
 	"log"
 	"net"
 
-	pb "github.com/NguyenHoaiPhuong/Go-Web-Dev/021_GRPC/pb/user"
+	pb "github.com/NguyenHoaiPhuong/Go-Web-Dev/021_GRPC/10_Example/pb/user"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 )
