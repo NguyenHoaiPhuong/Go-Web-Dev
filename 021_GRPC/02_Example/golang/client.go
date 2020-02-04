@@ -4,8 +4,9 @@ import (
 	"bufio"
 	"context"
 	"fmt"
-	nltk "golang/nltk_service"
 	"os"
+
+	nltk "github.com/NguyenHoaiPhuong/Go-Web-Dev/021_GRPC/02_Example/golang/nltk_service"
 
 	"google.golang.org/grpc"
 )
