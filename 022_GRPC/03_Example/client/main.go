@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/NguyenHoaiPhuong/Go-Web-Dev/021_GRPC/03_Example/pb"
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/02_GRPC/03_Example/pb"
 	"google.golang.org/grpc"
 )
 
