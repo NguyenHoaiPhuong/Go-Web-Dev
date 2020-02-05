@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	pb "github.com/NguyenHoaiPhuong/Go-Web-Dev/02_GRPC/10_Example/pb/user"
+	pb "github.com/NguyenHoaiPhuong/Go-Web-Dev/022_GRPC/10_Example/pb/user"
 	"google.golang.org/grpc"
 )
 

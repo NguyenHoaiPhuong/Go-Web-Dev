@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"os"
 
-	nltk "github.com/NguyenHoaiPhuong/Go-Web-Dev/02_GRPC/02_Example/golang/nltk_service"
+	nltk "github.com/NguyenHoaiPhuong/Go-Web-Dev/022_GRPC/02_Example/golang/nltk_service"
 
 	"google.golang.org/grpc"
 )
