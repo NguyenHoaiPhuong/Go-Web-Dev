@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package pb;
+
+service Arithmetic {
+    rpc Add(Request) returns (Response);
+    rpc Subtract(Request) returns (Response);
+    rpc Multiply(Request) returns (Response);
+    rpc Divide(Request) returns (Response);
+}
+
+message Request {
+    double a = 1;
+    double b = 2;
+}
+
+message Response {
+    double result = 1;
+}
