@@ -18,7 +18,7 @@ const (
 )
 
 // InitMongodump : initialize mongodump with given options
-func InitMongodump(serverHost, serverPort, authUser, authPass, savedDBame, outPath string) *mongodump.MongoDump {
+func InitMongodump(serverHost, serverPort, authUser, authPass, savedDBName, outPath string) *mongodump.MongoDump {
 	var toolOptions *commonOpts.ToolOptions
 	ssl := &commonOpts.SSL{
 		UseSSL: false,
