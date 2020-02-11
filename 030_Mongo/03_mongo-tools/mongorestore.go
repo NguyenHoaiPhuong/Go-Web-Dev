@@ -3,12 +3,13 @@ package main
 // mongorestore $MONGO_BACKUP_DATA_ROOT_FOLDER_PATH/$RESTORED_DB_NAME --host ${DB_HOST} --port ${DB_PORT} --drop --db ${RESTORED_DB_NAME} ---username ${DB_USER} --password ${DB_PASS} --authenticationDatabase admin
 
 import (
-	// "log"
+	// "github.com/mongodb/mongo-tools-common/common/db"
 
-	"github.com/mongodb/mongo-tools/common/db"
-	commonOpts "github.com/mongodb/mongo-tools/common/options"
+	"log"
+
+	"github.com/mongodb/mongo-tools-common/db"
+	commonOpts "github.com/mongodb/mongo-tools-common/options"
 	"github.com/mongodb/mongo-tools/mongorestore"
-	restoredOpts "github.com/mongodb/mongo-tools/mongorestore/options"
 )
 
 const (
@@ -28,7 +29,6 @@ func InitMongorestore(serverHost, serverPort, authUser, authPass, restoredDBame,
 		Password: authPass,
 		Source:   "admin",
 	}
-	// auth := &commonOpts.Auth{}
 	connection := &commonOpts.Connection{
 		Host: serverHost,
 		Port: serverPort,
@@ -37,33 +37,38 @@ func InitMongorestore(serverHost, serverPort, authUser, authPass, restoredDBame,
 	toolOptions = &commonOpts.ToolOptions{
 		Connection: connection,
 		Auth:       auth,
-		Namespace: nameSpace,
+		Namespace:  nameSpace,
 	}
 
-	inputOptions := &restoredOpts.InputOptions{
-		// RestoreDBUsersAndRoles: true,
-	}
-	outputOptions := &restoredOpts.OutputOptions{
-		Drop: true,
+	inputOpts := &mongorestore.InputOptions{}
+	outputOpts := &mongorestore.OutputOptions{
+		NumParallelCollections: 1,
+		NumInsertionWorkers:    1,
+		WriteConcern:           "majority",
 	}
 
-	sessProvider, err := db.InitSessionProvider(*toolOptions)
+	nsOpts := &mongorestore.NSOptions{
+		DB: restoredDBame,
+	}
+
+	dbPath := localPath + "/" + restoredDBame
+
+	provider, err := db.NewSessionProvider(*toolOptions)
 	checkError(err)
 
-	dbPath := localPath+"/"+restoredDBame
-
 	return &mongorestore.MongoRestore{
-		ToolOptions:   toolOptions,
-		InputOptions:  inputOptions,
-		OutputOptions: outputOptions,
+		ToolOptions:     toolOptions,
+		OutputOptions:   outputOpts,
+		InputOptions:    inputOpts,
+		NSOptions:       nsOpts,
+		SessionProvider: provider,
 		TargetDirectory: dbPath,
-		SessionProvider: sessProvider,
 	}
 }
 
-func main()  {
+func main() {
 	mr := InitMongorestore(DB_HOST, DB_PORT, DB_USER, DB_PASS, RESTORED_DB_NAME, MONGO_BACKUP_DATA_ROOT_FOLDER_PATH)
-	
+
 	// log.Println("Auth:", mr.ToolOptions.Auth)
 	// log.Println("Connection:", mr.ToolOptions.Connection)
 	// log.Println("DBPath:", mr.ToolOptions.DBPath)
@@ -71,8 +76,10 @@ func main()  {
 	// log.Println("Username:", mr.ToolOptions.Username)
 	// log.Println("Password:", mr.ToolOptions.Password)
 
-	err := mr.Restore()
-	checkError(err)
+	// err := mr.Restore()
+	// checkError(err)
+	result := mr.Restore()
+	log.Println(result)
 }
 
 func checkError(err error) {
