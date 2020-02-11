@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"ITV.ProductMaster"}],"uuid":"2975c50c1551408b9023b7f25adfc622"}

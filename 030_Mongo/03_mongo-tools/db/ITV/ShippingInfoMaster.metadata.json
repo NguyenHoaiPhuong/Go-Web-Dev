@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"ITV.ShippingInfoMaster"}],"uuid":"1acc0ec2fdfd444dbb09fc5b997aaf35"}
