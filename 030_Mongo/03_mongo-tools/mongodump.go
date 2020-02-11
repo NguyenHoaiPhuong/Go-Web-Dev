@@ -1,9 +1,9 @@
 package main
 
 import (
-	commonOpts "github.com/mongodb/mongo-tools/common/options"
+	"github.com/mongodb/mongo-tools-common/log"
+	commonOpts "github.com/mongodb/mongo-tools-common/options"
 	"github.com/mongodb/mongo-tools/mongodump"
-	"github.com/mongodb/mongo-tools/mongodump/options"
 )
 
 // mongodump --out $MONGO_BACKUP_DATA_ROOT_FOLDER_PATH/ --host ${DB_HOST} --port ${DB_PORT} --db ${SAVED_DB_NAME} --username ${DB_USER} --password ${DB_PASS} --authenticationDatabase admin
@@ -28,22 +28,33 @@ func InitMongodump(serverHost, serverPort, authUser, authPass, savedDBName, outP
 		Password: authPass,
 		Source:   "admin",
 	}
+	namespace := &commonOpts.Namespace{
+		DB: savedDBName,
+	}
 	connection := &commonOpts.Connection{
 		Host: serverHost,
 		Port: serverPort,
 	}
 	toolOptions = &commonOpts.ToolOptions{
 		SSL:        ssl,
+		Namespace:  namespace,
 		Connection: connection,
 		Auth:       auth,
+		Verbosity:  &commonOpts.Verbosity{},
+		URI: &commonOpts.URI{
+			ConnectionString: "",
+		},
 	}
-	toolOptions.Namespace = &commonOpts.Namespace{DB: savedDBame}
 
-	outputOptions := &options.OutputOptions{
-		Out: outPath,
+	outputOptions := &mongodump.OutputOptions{
+		NumParallelCollections: 1,
+		Out:                    outPath,
+	}
+	inputOptions := &mongodump.InputOptions{
+		Query: "",
 	}
 
-	inputOptions := &options.InputOptions{}
+	log.SetVerbosity(toolOptions.Verbosity)
 
 	return &mongodump.MongoDump{
 		ToolOptions:   toolOptions,

@@ -3,8 +3,6 @@ package main
 // mongorestore $MONGO_BACKUP_DATA_ROOT_FOLDER_PATH/$RESTORED_DB_NAME --host ${DB_HOST} --port ${DB_PORT} --drop --db ${RESTORED_DB_NAME} ---username ${DB_USER} --password ${DB_PASS} --authenticationDatabase admin
 
 import (
-	// "github.com/mongodb/mongo-tools-common/common/db"
-
 	"log"
 
 	"github.com/mongodb/mongo-tools-common/db"
