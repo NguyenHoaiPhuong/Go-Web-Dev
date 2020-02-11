@@ -23,12 +23,12 @@ const (
 // InitMongorestore : initialize mongorestore with given options
 func InitMongorestore(serverHost, serverPort, authUser, authPass, restoredDBame, localPath string) *mongorestore.MongoRestore {
 	var toolOptions *commonOpts.ToolOptions
-	// auth := &commonOpts.Auth{
-	// 	Username: authUser,
-	// 	Password: authPass,
-	// 	Source:   "admin",
-	// }
-	auth := &commonOpts.Auth{}
+	auth := &commonOpts.Auth{
+		Username: authUser,
+		Password: authPass,
+		Source:   "admin",
+	}
+	// auth := &commonOpts.Auth{}
 	connection := &commonOpts.Connection{
 		Host: serverHost,
 		Port: serverPort,
