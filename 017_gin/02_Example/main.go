@@ -48,9 +48,7 @@ func getAllPersons(c *gin.Context) {
 }
 
 func addNewPerson(c *gin.Context) {
-	person := new(Person)
-	err := c.Bind(person)
-	checkError(err)
+	person := parsePerson(c)
 
 	id := person.ID
 	if _, ok := persons[id]; ok {
@@ -68,16 +66,29 @@ func addNewPerson(c *gin.Context) {
 }
 
 func modifyPerson(c *gin.Context) {
+	id, found := validatePersonID(c)
+	if found {
+		// oldPerson := persons[id]
+		newPerson := parsePerson(c)
+		newPerson.ID = id
+		persons[id] = newPerson
 
+		c.JSON(200, gin.H{
+			"ID":   newPerson.ID,
+			"Name": newPerson.Name,
+			"Age":  newPerson.Age,
+		})
+	} else {
+		c.String(http.StatusOK, "No person matches the ID %v", id)
+	}
 }
 
 func deletePerson(c *gin.Context) {
-	idStr := c.Param("id")
-	id, err := strconv.Atoi(idStr)
-	checkError(err)
-
-	if person, ok := persons[id]; ok {
+	id, found := validatePersonID(c)
+	if found {
+		person := persons[id]
 		delete(persons, id)
+
 		c.JSON(200, gin.H{
 			"ID":   person.ID,
 			"Name": person.Name,
@@ -86,11 +97,30 @@ func deletePerson(c *gin.Context) {
 	} else {
 		c.String(http.StatusOK, "No person matches the ID %v", id)
 	}
-
 }
 
 func checkError(err error) {
 	if err != nil {
 		panic(err)
 	}
+}
+
+func validatePersonID(c *gin.Context) (id int, found bool) {
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	checkError(err)
+
+	if _, ok := persons[id]; !ok {
+		return id, false
+	}
+
+	return id, true
+}
+
+func parsePerson(c *gin.Context) *Person {
+	person := new(Person)
+	err := c.Bind(person)
+	checkError(err)
+
+	return person
 }
