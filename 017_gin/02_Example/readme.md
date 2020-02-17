@@ -22,6 +22,17 @@ body:
 
 ## PUT
 
+```
+path:
+localhost:9000/person/2
+
+body:
+{
+	"id": 1,
+	"name": "Mogami",
+	"age": 25
+}
+```
 
 ## DELETE
 
