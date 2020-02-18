@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package pb;
+
+// UserSrv: CRUD funcs for user
+service UserSrv {
+  rpc CreateUser(CreateUserReq) returns (CreateUserRes) {}
+  rpc ReadUser(ReadUserReq) returns (ReadUserRes) {}
+  rpc UpdateUser(UpdateUserReq) returns (UpdateUserRes) {}
+  rpc DeleteUser(DeleteUserReq) returns (DeleteUserRes) {}
+}
+
+// UserInfo
+message UserInfo {
+  uint32 id                  = 1;
+  string full_name           = 2;
+  string username            = 3;
+  string email               = 4;
+  string password            = 5;  
+}
+
+// REQUEST
+// CreateUserReq represents an create user query
+message CreateUserReq {
+  UserInfo user = 1;
+}
+
+// ReadUserReq represents an read user query
+message ReadUserReq {
+  UserInfo user = 1;
+}
+
+// UpdateUserReq represents an update user query
+message UpdateUserReq {
+  UserInfo user = 1;
+}
+
+// DeleteUserReq represents an delete user query
+message DeleteUserReq {
+  UserInfo user = 1;
+}
+
+// RESPONSE
+// CreateUserRes : result + user info + list of master wallet
+message CreateUserRes {
+  bool     result = 1;
+  UserInfo user   = 2;
+}
+
+// ReadUserRes : result + user info + list of master wallet
+message ReadUserRes {
+  bool     result = 1;
+  UserInfo user   = 2;
+}
+
+// UpdateUserRes : result + user info + list of master wallet
+message UpdateUserRes {
+  bool     result = 1;
+  UserInfo user   = 2;
+}
+
+// DeleteUserRes : result + user info + list of master wallet
+message DeleteUserRes {
+  bool     result = 1;
+  UserInfo user   = 2;
+}
