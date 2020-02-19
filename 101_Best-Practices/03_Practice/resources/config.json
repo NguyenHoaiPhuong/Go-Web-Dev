@@ -1,0 +1,16 @@
+{
+    "ServerConfigurations" : {
+        "host": "localhost",
+        "port": "9000"
+    },
+    "DatabaseConfigurations": {
+        "dbName": "itv_test",
+        "dbType": "postgres",
+        "dbUser": "itv",
+        "dbPass": "itv",
+        "dbHost": "localhost",
+        "dbPort": "5000",
+        "dbURL": "postgres://itv:itv@localhost:5000/itv_test"
+    },
+    "tokenPass": "thisIsTheJwtPassword"
+}
