@@ -1,8 +1,9 @@
 package main
 
 import (
-	"GO-WEB-DEV/000_Basic/003_Package/stringutil"
 	"fmt"
+
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/000_Basic/003_Package/stringutil"
 )
 
 func main() {
