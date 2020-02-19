@@ -8,6 +8,9 @@ import (
 	"github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/api"
 	"github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/config"
 	"github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/handlers"
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/models"
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/repo"
+	"github.com/jinzhu/gorm"
 )
 
 // NewApp returns new app interface
@@ -25,6 +28,7 @@ type IApp interface {
 // ImpApp struct includes router and mongodb session
 type ImpApp struct {
 	conf *config.Config
+	db   *gorm.DB
 	srv  *api.Server
 
 	IApp
@@ -33,11 +37,19 @@ type ImpApp struct {
 // Init : initializes configurations, database, etc
 func (app *ImpApp) Init() {
 	app.initConfig()
+	app.initDatabase()
 	app.initServer()
 }
 
 func (app *ImpApp) initConfig() {
 	app.conf = config.ParseConfig()
+	app.conf.Print()
+}
+
+func (app *ImpApp) initDatabase() {
+	repo.Init(app.conf.Database)
+	app.db = repo.GetDB()
+	app.db.Debug().AutoMigrate(&models.Account{}, &models.Contact{})
 }
 
 func (app *ImpApp) initServer() {

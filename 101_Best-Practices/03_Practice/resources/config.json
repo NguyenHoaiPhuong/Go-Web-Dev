@@ -1,9 +1,9 @@
 {
-    "ServerConfigurations" : {
+    "server" : {
         "host": "localhost",
         "port": "9000"
     },
-    "DatabaseConfigurations": {
+    "database": {
         "dbName": "itv_test",
         "dbType": "postgres",
         "dbUser": "itv",

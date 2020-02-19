@@ -3,6 +3,7 @@ package models
 import (
 	"fmt"
 
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/repo"
 	u "github.com/NguyenHoaiPhuong/Go-Web-Dev/101_Best-Practices/03_Practice/utils"
 
 	"github.com/jinzhu/gorm"
@@ -43,7 +44,7 @@ func (contact *Contact) Create() map[string]interface{} {
 		return resp
 	}
 
-	GetDB().Create(contact)
+	repo.GetDB().Create(contact)
 
 	resp := u.Message(true, "success")
 	resp["contact"] = contact
@@ -53,7 +54,7 @@ func (contact *Contact) Create() map[string]interface{} {
 func GetContact(id uint) *Contact {
 
 	contact := &Contact{}
-	err := GetDB().Table("contacts").Where("id = ?", id).First(contact).Error
+	err := repo.GetDB().Table("contacts").Where("id = ?", id).First(contact).Error
 	if err != nil {
 		return nil
 	}
@@ -63,7 +64,7 @@ func GetContact(id uint) *Contact {
 func GetContacts(user uint) []*Contact {
 
 	contacts := make([]*Contact, 0)
-	err := GetDB().Table("contacts").Where("user_id = ?", user).Find(&contacts).Error
+	err := repo.GetDB().Table("contacts").Where("user_id = ?", user).Find(&contacts).Error
 	if err != nil {
 		fmt.Println(err)
 		return nil

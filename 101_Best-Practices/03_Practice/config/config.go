@@ -28,6 +28,7 @@ type Database struct {
 	DBPort string `json: "dbPort"`
 }
 
+// ParseConfig : parse configurations from global env and json file
 func ParseConfig() *Config {
 	// Set the file name of the configurations file
 	viper.SetConfigName("config")
@@ -62,9 +63,20 @@ func ParseConfig() *Config {
 		fmt.Printf("Unable to decode into struct, %v", err)
 	}
 
-	// Reading variables using the model
+	return &conf
+}
+
+// Print configurations for checking
+func (conf *Config) Print() {
+	fmt.Println("---------- Database configurations ----------")
 	fmt.Println("Database name is\t", conf.Database.DBName)
 	fmt.Println("Database type is\t", conf.Database.DBType)
+	fmt.Println("Database User is\t", conf.Database.DBUser)
+	fmt.Println("Database Pass is\t", conf.Database.DBPass)
+	fmt.Println("Database Host is\t", conf.Database.DBHost)
+	fmt.Println("Database Port is\t", conf.Database.DBPort)
 
-	return &conf
+	fmt.Println("----------- Server configurations -----------")
+	fmt.Println("Server host is\t", conf.Server.Host)
+	fmt.Println("Server port is\t", conf.Server.Port)
 }
