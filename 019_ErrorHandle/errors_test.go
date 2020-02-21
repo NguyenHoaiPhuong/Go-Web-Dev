@@ -5,12 +5,31 @@ import (
 	"testing"
 )
 
-func TestError(t *testing.T) {
-	ErrInvalidEmail := Error{Code: 1000, Message: "invalid email"}
-	ErrInvalidPassword := Error{Code: 1001, Message: "invalid password"}
-	ErrEmailNotExists := Error{Code: 1002, Message: "email doesn't exist"}
-	ErrEmailAlreadyExists := Error{Code: 1003, Message: "email already exists"}
+func backendCreateUser() {
+	errs := entrystoreCreateUser()
+	if errs.HasError() {
+		fmt.Println(errs.Error())
+	}
+}
 
-	errs := NewErrors(ErrInvalidEmail, ErrInvalidPassword, ErrEmailNotExists, ErrEmailAlreadyExists)
-	fmt.Println(errs.Error())
+func entrystoreCreateUser() Errors {
+	errs := mgoCreateUser()
+	if errs.HasError() {
+		errs.AddError(Error{Code: ErrCodeAddressExisted, Message: ErrMsgInvalidName})
+		return errs
+	}
+	return nil
+}
+
+func mgoCreateUser() Errors {
+	return NewErrors(Error{Code: ErrCodeMongoCreate, Message: "cannot create model"})
+}
+
+func TestError(t *testing.T) {
+	backendCreateUser()
+}
+
+func TestErrorCode(t *testing.T) {
+	fmt.Printf("Error code: %d, Error message: %s", ErrCodeInvalidEmail, ErrMsgInvalidEmail)
+	fmt.Printf("Error code: %d, Error message: %s", ErrCodeInvalidPassword, ErrMsgInvalidPassword)
 }

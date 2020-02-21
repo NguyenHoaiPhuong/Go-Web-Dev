@@ -5,9 +5,6 @@ import (
 	"strings"
 )
 
-// ErrorCode : error code
-type ErrorCode uint
-
 // Error struct
 type Error struct {
 	Code    ErrorCode
@@ -35,6 +32,14 @@ func (errs *Errors) AddError(err Error) {
 	if len(err.Message) > 0 {
 		*errs = append(*errs, err)
 	}
+}
+
+// HasError returns true if there is at least one error in the slice
+func (errs Errors) HasError() bool {
+	if len(errs) > 0 {
+		return true
+	}
+	return false
 }
 
 // NewErrors returns a slice of errors
