@@ -6,6 +6,10 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+const (
+	srvAddr = "localhost:9001"
+)
+
 // Server : struct
 type Server struct {
 	router *gin.Engine
@@ -28,6 +32,8 @@ func (s *Server) Routes() {
 	apiUser := api.Group("/user")
 	{
 		apiUser.POST("/register", CreateUser)
+		apiUser.GET("/profile/:id", ReadUserProfile)
+		apiUser.PUT("/profile", UpdateUserProfile)
 	}
 }
 

@@ -1,8 +1,10 @@
 package api
 
 import (
+	"context"
 	"log"
 	"net/http"
+	"strconv"
 
 	"github.com/NguyenHoaiPhuong/Go-Web-Dev/022_GRPC/04_Example/client/models"
 	"github.com/NguyenHoaiPhuong/Go-Web-Dev/022_GRPC/04_Example/pb"
@@ -22,17 +24,17 @@ func RestAPIHomepage(c *gin.Context) {
 
 // CreateUser : "/api/user/register"
 func CreateUser(c *gin.Context) {
+	log.Println("Create new user ...")
+
 	userInfo := new(models.User)
 	err := c.ShouldBind(userInfo)
 	checkError(err, "cannot parse user info from request body")
 
-	// Set up a connection to the server
-	srvAddr := "localhost:9001"
 	conn, err := grpc.Dial(srvAddr, grpc.WithInsecure(), grpc.WithBlock())
 	checkError(err, "did not connect")
 	defer conn.Close()
 	client := pb.NewUserSrvClient(conn)
-	client.CreateUser(c.Request.Context(), &pb.CreateUserReq{
+	client.CreateUser(context.Background(), &pb.CreateUserReq{
 		User: &pb.UserInfo{
 			Id:       uint32(userInfo.ID),
 			FullName: userInfo.FullName,
@@ -41,6 +43,31 @@ func CreateUser(c *gin.Context) {
 			Password: userInfo.Password,
 		},
 	})
+}
+
+// ReadUserProfile : "/api/user/profile/:id"
+func ReadUserProfile(c *gin.Context) {
+	log.Println("Read user profile ...")
+
+	idStr := c.Param("id")
+	id, err := strconv.Atoi(idStr)
+	checkError(err, "cannot convert string id to integer id")
+
+	conn, err := grpc.Dial(srvAddr, grpc.WithInsecure(), grpc.WithBlock())
+	checkError(err, "did not connect")
+	defer conn.Close()
+	client := pb.NewUserSrvClient(conn)
+	client.ReadUser(context.Background(), &pb.ReadUserReq{
+		User: &pb.UserInfo{
+			Id: uint32(id),
+		},
+	})
+}
+
+// UpdateUserProfile : "/api/user/profile"
+func UpdateUserProfile(c *gin.Context) {
+	log.Println("Update user profile ...")
+
 }
 
 func checkError(err error, msg string) {
