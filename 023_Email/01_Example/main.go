@@ -52,9 +52,7 @@ func testSendMail2() {
 	htmlContent := "<strong>and easy to do anywhere, even with Go</strong>"
 
 	message := mail.NewSingleEmail(from, subject, to, plainTextContent, htmlContent)
-	// client := sendgrid.NewSendClient(os.Getenv("SENDGRID_API_KEY"))
-	sendgridAPIKey := "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"
-	client := sendgrid.NewSendClient(sendgridAPIKey)
+	client := sendgrid.NewSendClient(os.Getenv("SENDGRID_API_KEY"))
 	response, err := client.Send(message)
 	if err != nil {
 		log.Println(err)
