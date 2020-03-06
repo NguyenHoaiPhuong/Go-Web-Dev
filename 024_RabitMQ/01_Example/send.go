@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/NguyenHoaiPhuong/Go-Web-Dev/024_RabitMQ/utils"
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/024_RabitMQ/01_Example/utils"
 	"github.com/streadway/amqp"
 )
 

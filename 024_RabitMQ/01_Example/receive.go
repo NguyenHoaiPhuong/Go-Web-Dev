@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/NguyenHoaiPhuong/Go-Web-Dev/024_RabitMQ/utils"
+	"github.com/NguyenHoaiPhuong/Go-Web-Dev/024_RabitMQ/01_Example/utils"
 )
 
 func main() {
