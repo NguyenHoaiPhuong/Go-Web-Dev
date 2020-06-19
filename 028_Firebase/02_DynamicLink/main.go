@@ -71,28 +71,34 @@ func testCreateDynamicLink() {
 	fmt.Println(code)
 }
 
-func main() {
-	// testCreateDynamicLink()
-
+func testGetDynamicLinkStats() {
 	conf := config.GetConfig()
 	ctx := context.Background()
-	/*opt := option.WithAPIKey(conf.GoogleAPIKey)
-	firebasedynamiclinksService, err := firebasedynamiclinks.NewService(ctx, opt)*/
 	opt := option.WithCredentialsFile(conf.GoogleCredentials)
 	firebasedynamiclinksService, err := firebasedynamiclinks.NewService(ctx, opt)
 	if err != nil {
 		panic(err)
 	}
 
-	shortLink := "https://tokoin.co/wallet/nY4uAwqWetBTfyyb9"
-	call := firebasedynamiclinksService.(shortLink)
+	// link := "https://tokoin.co/wallet/user_id=136&email=pqkhanh88@gmail.com&referral_code=fpFaJc"
+	// link := "https://tokoin.co/wallet/R56w"
+	link := "https://itvietnam.page/wallet/T8GLQtZPAZa2Cuvx5"
+	call := firebasedynamiclinksService.V1.GetLinkStats(link)
+	call = call.DurationDays(7)
 	resp, err := call.Do()
 	if err != nil {
 		panic(err)
 	}
-	bs, err := resp.MarshalJSON()
-	if err != nil {
-		panic(err)
+
+	fmt.Println(resp)
+
+	for _, eventStat := range resp.LinkEventStats {
+		fmt.Println(eventStat.Event)
 	}
-	fmt.Println(string(bs))
+}
+
+func main() {
+	// testCreateDynamicLink()
+
+	testGetDynamicLinkStats()
 }
