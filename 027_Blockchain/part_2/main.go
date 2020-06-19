@@ -1,17 +1,22 @@
 package main
 
-import "log"
-
-func print(num int64) {
-	bs := IntToHex(num)
-	str := string(bs)
-	log.Println("bs:", bs)
-	log.Println("str:", str)
-}
+import (
+	"fmt"
+	"strconv"
+)
 
 func main() {
-	print(1)
-	print(10)
-	print(100)
-	print(1000)
+	bc := NewBlockchain()
+
+	bc.AddBlock("Send 1 BTC to Ivan")
+	bc.AddBlock("Send 2 more BTC to Ivan")
+
+	for _, block := range bc.blocks {
+		fmt.Printf("Prev. hash: %x\n", block.PrevBlockHash)
+		fmt.Printf("Data: %s\n", block.Data)
+		fmt.Printf("Hash: %x\n", block.Hash)
+		pow := NewProofOfWork(block)
+		fmt.Printf("PoW: %s\n", strconv.FormatBool(pow.Validate()))
+		fmt.Println()
+	}
 }
