@@ -10,7 +10,7 @@ type Queue struct {
 	queue *list.List
 }
 
-// New func
+// NewQueue init queue
 func NewQueue() *Queue {
 	q := new(Queue)
 	q.queue = list.New()
