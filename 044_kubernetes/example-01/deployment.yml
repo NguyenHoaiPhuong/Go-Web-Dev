@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kubernetes-example01
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      name: kubernetes-example01
+  template:
+    metadata:
+      labels:
+        name: kubernetes-example01
+    spec:
+      containers:
+      - name: example01
+        image: asia.gcr.io/dantrisoft/kubernetes-example01:0.0.1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
