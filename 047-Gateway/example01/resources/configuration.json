@@ -19,9 +19,10 @@
                     "url_pattern": "/api"
                 }
             ],
-            "concurrent_calls": 2,
+            "concurrent_calls": 1,
             "timeout": "1000",
             "cache_ttl": 3600
         }
-    ]
+    ],
+    "debug": true
 }
