@@ -1,0 +1,27 @@
+{
+	"version": 2,
+	"name": "Prophet Gateway",
+	"port": 6000,
+	"timeout": "10",
+	"cache_ttl": "3600",
+	"host": [
+		"http://127.0.0.1:6000"
+    ],
+    "endpoints": [
+        {
+            "endpoint": "/api",
+            "method": "GET",
+            "backend": [
+                {
+                    "host": [
+                        "http://127.0.0.1:6001"
+                    ],
+                    "url_pattern": "/api"
+                }
+            ],
+            "concurrent_calls": 2,
+            "timeout": "1000",
+            "cache_ttl": 3600
+        }
+    ]
+}
