@@ -2,7 +2,6 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"os"
 
@@ -22,15 +21,12 @@ func main() {
 
 	serviceConfig, err := parser.Parse(*configFile)
 	if err != nil {
-		fmt.Printf("%+v\n", err)
 		log.Fatal("ERROR:", err.Error())
 	}
-	fmt.Println("2222")
 	serviceConfig.Debug = serviceConfig.Debug || *debug
 	if *port != 0 {
 		serviceConfig.Port = *port
 	}
-	fmt.Printf("%+v\n", serviceConfig)
 
 	logger, _ := logging.NewLogger(*logLevel, os.Stdout, "[KRAKEND]")
 
